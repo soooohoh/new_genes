@@ -1,0 +1,20 @@
+<!doctype html>
+
+<p>여기서 유전자 정보를 세세히 볼 수 있습니다.</p>
+
+{% for genes in genes %}
+<div>
+    <h1>{{genes.name}}</h1>
+    <h2>{{genes.description}}</h2>
+    <span>위험 유전자</span><br>
+    <p>
+        {{genes.warnning_type}}
+    </p>
+    <span>양호 유전자</span><br>
+    <p>
+        {{genes.good_type}}
+    </p>
+    <a href={% url 'gene_habit' genes.name %}>생활습관, 식습관 팁!!</a>
+</div>
+{% endfor %}
+<a href={% url 'gene_info' %}>특성 정보 페이지(이전 페이지)</a>
