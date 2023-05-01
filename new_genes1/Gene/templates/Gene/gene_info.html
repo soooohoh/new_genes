@@ -1,0 +1,10 @@
+<!doctype html>
+
+<h1>특성 정보 페이지</h1>
+
+{% for object in property %}
+<h1><a href={% url 'gene_list' object.id %}>{{object.title}}</a></h1>
+<p>{{object.descript}}</p>
+{% endfor %}
+
+<a href={% url 'main' %}>메인 화면</a>
