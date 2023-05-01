@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*+@-11m@(ujfworas9i@+&!u^n9ve6ne43-x82-aqavid(=*mu'
+SECRET_KEY = '&njx(n3w@qm&8+lp1s6m67op2q&w2r&$i27gf+jdx39&_z(l@2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,8 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Gene',
-    'accounts',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'django.contrib.sites',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -119,6 +124,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [BASE_DIR, "Static"]
+
+
+#Auth settings
+AUTH_USER_MODEL = 'Gene.User'
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_SIGNUP_REDIRECT_URL = 'home' # 회원가입시 home으로 이동한다.
+LOGIN_REDIRECT_URL = 'home' # 로그인 시 home으로 이동한다.
+ACCOUNT_LOGOUT_ON_GET = True # 로그아웃 시 바로 로그아웃이 된다.
+
+
+# Email_settings
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -1,30 +1,32 @@
 from django.shortcuts import render
-from .models import Gene
-from .models import Property
+from .models import Property, Gene
+from .forms import GeneForm
+
 # Create your views here.
+def home(request):
+    return render(request, 'Gene/home.html')
 
-def main(request):
-    return render(request, 'Gene/main.html')
+def my_page(request):
+    context=dict()
+    data = Property.objects.all()
+    context['property']=data
 
-def gene_info(request):
-    context = dict()
-    context['property'] = Property.objects.all()
-    return render(request, 'Gene/gene_info.html', context=context)
-
-def avatar_game(request):
-    return render(request, 'Gene/avatar_game.html')
-
-def gene_list(request, property_id):
-    context = dict()
-    genes = Gene.objects.filter(property_id_id=property_id)
-    context['genes'] = genes
-    return render(request, 'Gene/gene_list.html', context=context)
-
-def habits(request, gene_name):
-    return render(request, 'Gene/habits.html')
+    return render(request, 'Gene/my_page.html', context=context)
 
 def daily_question(request):
     return render(request, 'Gene/daily_question.html')
 
-def my_page(request):
-    return render(request, 'Gene/my_page.html')
+def gene_register(request, property_id):
+
+    if request.POST=="POST":
+            data = Gene.objects.filter(property_id_id=property_id)
+            context=dict()
+            context['gene']=data
+            return render(request, 'Gene/gene_register.html', context=context)
+    else:
+        data = Gene.objects.filter(property_id_id=property_id)
+        context=dict()
+        context['gene']=data
+        form = GeneForm()
+        context['form']=form
+        return render(request, 'Gene/gene_register.html', context=context)

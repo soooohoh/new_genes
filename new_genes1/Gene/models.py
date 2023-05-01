@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 #외형적, 내형적 특성 11개
@@ -15,7 +15,6 @@ class Gene(models.Model):
     description = models.TextField()
     warnning_type = models.CharField(max_length=2)
     good_type = models.CharField(max_length=2)
-
 #생활습관, 식습관
 
 class Eating_Habits(models.Model):
@@ -31,3 +30,6 @@ class Lifestyle(models.Model):
     points = models.IntegerField
     activity_name = models.TextField
 
+#유저모델
+class User(AbstractUser):
+    pass

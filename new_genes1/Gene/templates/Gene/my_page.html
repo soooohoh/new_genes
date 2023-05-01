@@ -1,2 +1,14 @@
-<br><br><br><br><br><br><br><br>
-<h1>My Page 정보 출력</h1>
+<h1>마이페이지</h1>
+<h2>본인의 검사 결과지를 바탕으로 최대한 비슷하게 작성 해 주세요!!</h2>
+
+<p>총 11개 특성 中 각각에 해당하는 유전자의 종류를 입력해 주세요.</p>
+
+{% for property in property%}
+    <div>
+        <p>
+            {{property.title}}<br>
+            {{property.descript}}<br>
+        <a href={% url 'gene_register' property.id %}>유전자 등록하기!</a>
+        </p>
+    </div>
+{% endfor %}

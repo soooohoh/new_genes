@@ -1,0 +1,15 @@
+<h1>유전자 등록 페이지<h1>
+    <form method="post">{% csrf_token %}
+        {% for gene in gene %}
+            <div>
+                <p>
+                    {{gene.name}}<br>
+                    
+                    {{gene.description}}<br>
+
+                    {{form.good_type}}<br>
+                </p>
+            </div>
+        {% endfor %}
+        <input type="submit" value="등록하기">
+    </form>
