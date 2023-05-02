@@ -92,17 +92,8 @@ DATABASES = {
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        {
+        'NAME': 'Gene.validators.CustomPasswordValidator',
     },
 ]
 
@@ -142,6 +133,7 @@ AUTHENTICATION_BACKENDS = [
 ACCOUNT_SIGNUP_REDIRECT_URL = 'home' # 회원가입시 home으로 이동한다.
 LOGIN_REDIRECT_URL = 'home' # 로그인 시 home으로 이동한다.
 ACCOUNT_LOGOUT_ON_GET = True # 로그아웃 시 바로 로그아웃이 된다.
+ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True
 
 
 # Email_settings
