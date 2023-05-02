@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <script>
+        const lgnbtn=document.getElementById("login");
+        const lodingLeft=document.querySelector(".login").offsetLeft;
+        lgnbtn.onclick=function(){
+            window.scrollTo({
+                left: lodingLeft,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+    <style>
+        
+        .container {
+            width: 100%;
+            overflow-x: scroll;
+            height: 100%;
+            white-space: nowrap;
+        }
+        .container>div{
+            text-align: center;
+            width: 50%;
+            height: 100%;
+            display: inline-block;
+            align-items: center;
+        }
+
+        #menuset{
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>New Genes</h1>
+    </header>
+    <hr>
+    <div class="container">
+        <div class="main">
+            <img src="https://via.placeholder.com/300.jpg" alt="sample img">
+        </div>
+        <div class="login">
+            <table>
+                <tr>
+                    <td>ID</td>
+                    <td><input type="text" name="ID" id=""></td>
+                    <td rowspan="2"><button id="login">lgn</button></td>
+                </tr>
+                <tr>
+                    <td>PW</td>
+                    <td><input type="password" name="PW" id=""></td>
+                </tr>
+            </table>
+        </div>
+        <div class="loding">
+            <h1>wait few seconds...</h1>
+        </div>
+        <div class="character">
+            <img src="https://via.placeholder.com/300.jpg" alt="">
+        </div>
+        <div class="menu">
+            <div id="menuset">
+                <table>
+                    <tr>
+                        <td><button>
+                                Daily Questions
+                            </button></td>
+                    </tr>
+                    <tr>
+                        <td><button>
+                                Avatar-Info
+                            </button></td>
+                    </tr>
+                    <tr>
+                        <td><button>
+                                Health News
+                            </button></td>
+                    </tr>
+                    <tr>
+                        <td><button>
+                                My page
+                            </button></td>
+                    </tr>
+                    <tr>
+                        <td><button>
+                                About Us
+                            </button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <p>2023/05/02</p>
+    </footer>
+</body>
+
+</html>
