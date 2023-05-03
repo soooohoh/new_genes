@@ -2,25 +2,26 @@
 <html lang="ko">
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="./front_files/jquery-3.6.4.min.js.다운로드"></script>
+
     <script>
-        const lgnbtn=document.getElementById("login");
-        const lodingLeft=document.querySelector(".login").offsetLeft;
-        lgnbtn.onclick=function(){
-            window.scrollTo({
-                left: lodingLeft,
-                behavior: 'smooth'
-            });
-        }
+        $(document).ready(function () {
+            $("button[id='login']").click(function () {
+                const offset = $(".character").offset();
+                $('.container').animate({ scrollLeft: offset.left }, 500);
+            })
+        });
     </script>
     <style>
-        
         .container {
             width: 100%;
-            overflow-x: scroll;
+            overflow-x: hidden;
             height: 100%;
             white-space: nowrap;
         }
-        .container>div{
+
+        .container>div {
             text-align: center;
             width: 50%;
             height: 100%;
@@ -28,9 +29,7 @@
             align-items: center;
         }
 
-        #menuset{
-            
-        }
+        #menuset {}
     </style>
 </head>
 
@@ -41,55 +40,57 @@
     <hr>
     <div class="container">
         <div class="main">
-            <img src="https://via.placeholder.com/300.jpg" alt="sample img">
+            <img src="./front_files/300.jpg" alt="sample img">
         </div>
         <div class="login">
             <table>
-                <tr>
-                    <td>ID</td>
-                    <td><input type="text" name="ID" id=""></td>
-                    <td rowspan="2"><button id="login">lgn</button></td>
-                </tr>
-                <tr>
-                    <td>PW</td>
-                    <td><input type="password" name="PW" id=""></td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>ID</td>
+                        <td><input type="text" name="ID" id=""></td>
+                        <td rowspan="2"><button id="login">lgn</button></td>
+                    </tr>
+                    <tr>
+                        <td>PW</td>
+                        <td><input type="password" name="PW" id=""></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
-        <div class="loding">
-            <h1>wait few seconds...</h1>
-        </div>
         <div class="character">
-            <img src="https://via.placeholder.com/300.jpg" alt="">
+            <img src="./front_files/300.jpg" alt="">
         </div>
         <div class="menu">
             <div id="menuset">
                 <table>
-                    <tr>
-                        <td><button>
-                                Daily Questions
-                            </button></td>
-                    </tr>
-                    <tr>
-                        <td><button>
-                                Avatar-Info
-                            </button></td>
-                    </tr>
-                    <tr>
-                        <td><button>
-                                Health News
-                            </button></td>
-                    </tr>
-                    <tr>
-                        <td><button>
-                                My page
-                            </button></td>
-                    </tr>
-                    <tr>
-                        <td><button>
-                                About Us
-                            </button></td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td><button>
+                                    <a href="http://127.0.0.1:5501/%7B%" url="" 'daily_question'="" %}="">Daily
+                                        Questions</a>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td><button>
+                                    Avatar-Info
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td><button>
+                                    Health News
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td><button>
+                                    <a href="http://127.0.0.1:5501/%7B%" url="" 'my_page'="" %}="">My Page</a>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td><button>
+                                    About Us
+                                </button></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -98,6 +99,46 @@
     <footer>
         <p>2023/05/02</p>
     </footer>
+    <!-- Code injected by live-server -->
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+	// ]]>
+    </script>
+
+
 </body>
 
 </html>
