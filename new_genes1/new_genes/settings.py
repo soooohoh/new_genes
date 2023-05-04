@@ -135,6 +135,14 @@ LOGIN_REDIRECT_URL = 'home' # 로그인 시 home으로 이동한다.
 ACCOUNT_LOGOUT_ON_GET = True # 로그아웃 시 바로 로그아웃이 된다.
 ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True
 
+ACCOUNT_SIGNUP_FORM_CLASS = 'Gene.forms.SignupForm'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SESSION_REMEMBER = True
+SESSION_COOKIE_AGE = 3600
+
 
 # Email_settings
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
