@@ -1,0 +1,21 @@
+<h2>챙겨드세요!!</h2>
+
+
+{% for habit in data %}
+        <div style="display: inline-block; padding: 0px 20px;">
+            <h3>{{habit.food_name}}</h3>
+            {{habit.food_description | linebreaksbr}}<br>
+            {{habit.foods}}<br>
+        </div>    
+{% endfor %}
+
+<br><br><br><br>
+
+
+<h2>생활 습관 가이드</h2>
+{% for habit in style_data %}
+        <div>
+            <h3>{{habit.id}}</h3>
+            {{habit.style}}
+        </div>
+{% endfor %}
