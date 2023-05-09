@@ -2,143 +2,167 @@
 <html lang="ko">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="./front_files/jquery-3.6.4.min.js.다운로드"></script>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js
+    "></script>
 
     <script>
         $(document).ready(function () {
+            $("button[id='signUp']").click(function () {
+                const offset = $(".signUp").offset();
+                $('.showroom').animate({ scrollTop: offset.top }, 500);
+            })
+            $("button[id='ok']").click(function () {
+                const offset = $(".login").offset();
+                $('.showroom').animate({ scrollTop: offset.top }, 500);
+            })
             $("button[id='login']").click(function () {
-                const offset = $(".character").offset();
-                $('.container').animate({ scrollLeft: offset.left }, 500);
+                const offset = $(".menu").offset();
+                $('.showroom').animate({ scrollLeft: offset.left }, 500);
+            })
+            $("button[id='logout']").click(function () {
+                const offset = $(".login").offset();
+                $('.showroom').animate({ scrollLeft: offset.left }, 500);
             })
         });
     </script>
     <style>
-        .container {
+        .showroom{
             width: 100%;
+            height: 500px;
             overflow-x: hidden;
-            height: 100%;
+            overflow-y: hidden;
+            white-space: nowrap
+        }
+        .FirstContainer {
+            width: 100%;
+            height: 500px;
             white-space: nowrap;
         }
+        .SecondContainer{
+            height: 500px;
+        }
 
-        .container>div {
+        .FirstContainer>div {
             text-align: center;
             width: 50%;
             height: 100%;
             display: inline-block;
             align-items: center;
         }
-
+        .SecondContainer>div{
+         width: 100%;
+         height: 100%;   
+        }
         #menuset {}
     </style>
 </head>
 
 <body>
+    <title>New genes_our Gene</title>
     <header>
         <h1>New Genes</h1>
     </header>
     <hr>
-    <div class="container">
-        <div class="main">
-            <img src="./front_files/300.jpg" alt="sample img">
-        </div>
-        <div class="login">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>ID</td>
-                        <td><input type="text" name="ID" id=""></td>
-                        <td rowspan="2"><button id="login">lgn</button></td>
-                    </tr>
-                    <tr>
-                        <td>PW</td>
-                        <td><input type="password" name="PW" id=""></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="character">
-            <img src="./front_files/300.jpg" alt="">
-        </div>
-        <div class="menu">
-            <div id="menuset">
+    <div class="showroom">
+        <div class="FirstContainer">
+            <div class="main">
+                <img src="http://placehold.it/300x300" alt="sample img">
+            </div>
+            <div class="login">
                 <table>
                     <tbody>
                         <tr>
-                            <td><button>
-                                    <a href="http://127.0.0.1:5501/%7B%" url="" 'daily_question'="" %}="">Daily
-                                        Questions</a>
-                                </button></td>
+                            <td>ID</td>
+                            <td><input type="text" name="ID" id=""></td>
+                            <td rowspan="2">
+                                <button id="login">lgn</button><br>
+                                <button id="signUp">sign up</button>
+                            </td>
                         </tr>
                         <tr>
-                            <td><button>
-                                    Avatar-Info
-                                </button></td>
-                        </tr>
-                        <tr>
-                            <td><button>
-                                    Health News
-                                </button></td>
-                        </tr>
-                        <tr>
-                            <td><button>
-                                    <a href="http://127.0.0.1:5501/%7B%" url="" 'my_page'="" %}="">My Page</a>
-                                </button></td>
-                        </tr>
-                        <tr>
-                            <td><button>
-                                    About Us
-                                </button></td>
+                            <td>PW</td>
+                            <td><input type="password" name="PW" id=""></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <div class="character">
+                <img src="http://placehold.it/300x300" alt="">
+            </div>
+            <div class="menu">
+                <div id="menuset">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><button>
+                                        <a href="http://127.0.0.1:5501/%7B%" url="" 'daily_question'="" %}="">Daily
+                                            Questions</a>
+                                    </button></td>
+                            </tr>
+                            <tr>
+                                <td><button>
+                                        Avatar-Info
+                                    </button></td>
+                            </tr>
+                            <tr>
+                                <td><button>
+                                        Health News
+                                    </button></td>
+                            </tr>
+                            <tr>
+                                <td><button>
+                                        <a href="http://127.0.0.1:5501/%7B%" url="" 'my_page'="" %}="">My Page</a>
+                                    </button></td>
+                            </tr>
+                            <tr>
+                                <td><button>
+                                        About Us
+                                    </button></td>
+                            </tr>
+                            <tr>
+                                <td><button id="logout">
+                                        logout
+                                    </button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+        <div class="SecodnContainer">
+            <div class="signUp">
+                <div>
+                    <table>
+                        <tr>
+                            <th>아이디</th> <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                        <th>비밀번호</th> <td><input type="password"></td>
+                        <tr>
+                            <th>비밀번호 확인</th> <td><input type="password"></td>
+                        </tr>
+                            <tr>
+                            <th>이메일</th> <td><input type="text"></td>
+                        </tr>
+                            <tr>
+                            <th>비밀번호</th> <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button id="ok">ok</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
+    
     <hr>
     <footer>
         <p>2023/05/02</p>
     </footer>
-    <!-- Code injected by live-server -->
-    <script>
-        // <![CDATA[  <-- For SVG support
-        if ('WebSocket' in window) {
-            (function () {
-                function refreshCSS() {
-                    var sheets = [].slice.call(document.getElementsByTagName("link"));
-                    var head = document.getElementsByTagName("head")[0];
-                    for (var i = 0; i < sheets.length; ++i) {
-                        var elem = sheets[i];
-                        var parent = elem.parentElement || head;
-                        parent.removeChild(elem);
-                        var rel = elem.rel;
-                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-                        }
-                        parent.appendChild(elem);
-                    }
-                }
-                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-                var address = protocol + window.location.host + window.location.pathname + '/ws';
-                var socket = new WebSocket(address);
-                socket.onmessage = function (msg) {
-                    if (msg.data == 'reload') window.location.reload();
-                    else if (msg.data == 'refreshcss') refreshCSS();
-                };
-                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-                    console.log('Live reload enabled.');
-                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-                }
-            })();
-        }
-        else {
-            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-        }
-	// ]]>
-    </script>
-
-
 </body>
 
 </html>
