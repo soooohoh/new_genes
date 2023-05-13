@@ -15,3 +15,8 @@ class SignupForm(forms.ModelForm):
     def signup(self, request, user):
         user.nickname = self.cleaned_data['nickname']
         user.save()
+
+class User_Profile_Form(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['nickname', 'intro', 'profile_picture', 'goals']

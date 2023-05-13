@@ -9,5 +9,9 @@ urlpatterns = [
     path('mypage/properties/gene_register/<str:gene_name>', views.habits, name='habits'),
     path('daily_question/', views.daily_question, name='daily_question'),
     #path('gene_register<int:property_id>/', views.gene_register, name='gene_register'),
-    path('avartar_game/', views.avatar_game, name='avatar_game')
+    path('avartar_game/', views.avatar_game, name='avatar_game'),
+
+    #프로필
+    path('mypage/profile/<int:user_id>/', views.ProfileReadView.as_view(), name='profile'),
+    path('mypage/profile/<int:user_id>/edit/', views.ProfileUpdateView.as_view(), name='profile-update'),
 ]

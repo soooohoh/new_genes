@@ -1,0 +1,19 @@
+<h1>프로필 수정</h1>
+
+
+
+<form method="post">{% csrf_token %}
+    <div>
+        {{form.profile_picture}}
+    </div>
+
+    <div>
+        {{form.intro}}
+    </div>
+
+    <div>
+        {{form.goals}}
+    </div>
+    
+    <button type="submit">완료</button>
+</form>

@@ -1,8 +1,12 @@
-from django.shortcuts import render, redirect
+from typing import Any, Optional
+from django.db import models
+from django.shortcuts import render, redirect, reverse
 from .models import Property, Gene, Eating_Habits
 from Gene.models import User
-from .forms import GeneForm
+from .forms import GeneForm, User_Profile_Form
 from Gene.models import LifeStyle
+from django.views.generic import DetailView, UpdateView
+
 # Create your views here.
 def home(request):
     return render(request, 'Gene/home.html')
@@ -46,3 +50,30 @@ def avatar_game(request):
 
 def daily_question(request):
     return render(request, 'Gene/daily_question.html')
+
+
+
+
+class ProfileReadView(DetailView):
+    model = User
+    template_name = 'Profile/profile_detail.html'
+    pk_url_kwarg = "user_id"
+
+
+class ProfileUpdateView(UpdateView):
+    model = User
+    form_class = User_Profile_Form
+    template_name = 'Profile/profile_form.html'
+    pk_url_kwarg = "user_id"
+
+    def get_success_url(self):
+        return reverse('profile', kwargs={ "user_id" : self.object.id })
+
+
+
+
+
+
+
+
+
