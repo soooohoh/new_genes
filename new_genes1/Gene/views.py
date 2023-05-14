@@ -1,13 +1,31 @@
+#from typing import Any, Optional
+#from django.db import models
+#from django.shortcuts import render, redirect
+#from .models import Property, Gene, Eating_Habits
+#from Gene.models import User
+#from .forms import GeneForm, User_Profile_Form
+#from Gene.models import LifeStyle
+#from django.views.generic import DetailView, UpdateView
+#from django.urls import reverse
 from typing import Any, Optional
 from django.db import models
-from django.shortcuts import render, redirect, reverse
-from .models import Property, Gene, Eating_Habits
-from Gene.models import User
-from .forms import GeneForm, User_Profile_Form
-from Gene.models import LifeStyle
-from django.views.generic import DetailView, UpdateView
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
+from django.views.generic import (ListView, 
+                                  DetailView, 
+                                  CreateView, 
+                                  UpdateView,
+                                  DeleteView)
+from allauth.account.models import EmailAddress
+from Gene.models import  User, Property
+from Gene.forms import GeneForm, User_Profile_Form
+from .models import Property, Gene, Eating_Habits, LifeStyle
+
+
+
 
 # Create your views here.
+
 def home(request):
     return render(request, 'Gene/home.html')
 
@@ -54,20 +72,44 @@ def daily_question(request):
 
 
 
+
+#프로필 Read
 class ProfileReadView(DetailView):
     model = User
     template_name = 'Profile/profile_detail.html'
     pk_url_kwarg = "user_id"
 
+#프로필 Create
+class ProfileSetView(UpdateView):
+    model = User
+    form_class = User_Profile_Form
+    template_name = "Profile/profile_set_form.html"
 
+    def get_object(self, queryset=None):        
+        return self.request.user
+    
+    def get_success_url(self):
+        return reverse("home")
+
+
+#프로필 Update
 class ProfileUpdateView(UpdateView):
     model = User
     form_class = User_Profile_Form
     template_name = 'Profile/profile_form.html'
-    pk_url_kwarg = "user_id"
+    pk_url_kwarg = 'user_id'
+
+
+    def get_object(self):
+        return self.request.user
+        
 
     def get_success_url(self):
-        return reverse('profile', kwargs={ "user_id" : self.object.id })
+        return reverse("home")
+        
+    #def get_success_url(self):
+    #    user_id = self.kwargs.get("user_id")
+    #    return reverse('profile', kwargs={ "user_id" : user_id })
 
 
 

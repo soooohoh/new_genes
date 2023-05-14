@@ -130,12 +130,12 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-ACCOUNT_SIGNUP_REDIRECT_URL = 'home' # 회원가입시 home으로 이동한다.
+ACCOUNT_SIGNUP_REDIRECT_URL = 'profile-set' # 회원가입시 프로필 설정으로 이동한다.
 LOGIN_REDIRECT_URL = 'home' # 로그인 시 home으로 이동한다.
 ACCOUNT_LOGOUT_ON_GET = True # 로그아웃 시 바로 로그아웃이 된다.
 ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True
 
-ACCOUNT_SIGNUP_FORM_CLASS = 'Gene.forms.SignupForm'
+#ACCOUNT_SIGNUP_FORM_CLASS = 'Gene.forms.SignupForm' 닉네임을 회원가입시 입력하도록 한다.
 
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
