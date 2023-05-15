@@ -4,14 +4,17 @@
 
 <form method="post">{% csrf_token %}
     <div>
+        프로필사진<br>
         {{form.profile_picture}}
     </div>
 
     <div>
+        상태메세지<br>
         {{form.intro}}
     </div>
 
     <div>
+        올 한해 목표<br>
         {{form.goals}}
     </div>
     

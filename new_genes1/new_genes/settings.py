@@ -149,4 +149,3 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #Media세팅
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "/uploads/"

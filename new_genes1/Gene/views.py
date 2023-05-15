@@ -9,7 +9,7 @@
 #from django.urls import reverse
 from typing import Any, Optional
 from django.db import models
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect ,get_object_or_404
 from django.urls import reverse
 from django.views.generic import (ListView, 
                                   DetailView, 
@@ -78,6 +78,7 @@ class ProfileReadView(DetailView):
     model = User
     template_name = 'Profile/profile_detail.html'
     pk_url_kwarg = "user_id"
+    context_object_name = "profile_user"
 
 #프로필 Create
 class ProfileSetView(UpdateView):
@@ -93,25 +94,31 @@ class ProfileSetView(UpdateView):
 
 
 #프로필 Update
-class ProfileUpdateView(UpdateView):
-    model = User
-    form_class = User_Profile_Form
-    template_name = 'Profile/profile_form.html'
-    pk_url_kwarg = 'user_id'
+#class ProfileUpdateView(UpdateView):
+ #   model = User
+  #  form_class = User_Profile_Form
+   # template_name = 'Profile/profile_form.html'
+   # pk_url_kwarg = 'user_id'
 
 
-    def get_object(self):
-        return self.request.user
-        
-
-    def get_success_url(self):
-        return reverse("home")
-        
+    #def get_success_url(self):
+    #    return reverse("home")     
     #def get_success_url(self):
     #    user_id = self.kwargs.get("user_id")
     #    return reverse('profile', kwargs={ "user_id" : user_id })
 
-
+def ProfileUpdateView(request, user_id):
+    object = User.objects.get(id=user_id)
+    if request.method=="POST":
+        user_form = User_Profile_Form(request.POST, instance=object)
+        if user_form.is_valid():
+            user_form.save()
+            return redirect('profile', user_id=object.id)
+                
+    else:
+        user_form = User_Profile_Form(instance=object)
+        
+    return render(request, "Profile/profile_set_form.html", {'form' : user_form})
 
 
 

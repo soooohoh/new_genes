@@ -22,5 +22,6 @@ urlpatterns = [
     #프로필profile
     path('mypage/profile/<int:user_id>/', views.ProfileReadView.as_view(), name='profile'),
     path("set-profile/", views.ProfileSetView.as_view(), name="profile-set"),
-    path('mypage/profile/<int:user_id>/edit/', views.ProfileUpdateView.as_view(), name='profile-update'),
+    #path('mypage/profile/<int:user_id>/edit/', views.ProfileUpdateView.as_view(), name='profile-update'),
+    path('mypage/profile/<int:user_id>/edit/', views.ProfileUpdateView, name='profile-update'),
 ]
