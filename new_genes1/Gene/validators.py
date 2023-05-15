@@ -45,7 +45,7 @@ class CustomPasswordValidator:
                 not contains_lowercase_letter(password) or
                 not contains_number(password) 
         ):
-            raise ValidationError("8자 이상이며 영문 대/소문자, 숫자를 포함해야 합니다.")
+            raise ValidationError("8자 이상이며 영문 대/소문자, 숫자, 특수문자를 포함해야 합니다.")
 
     def get_help_text(self):
-        return "8자 이상이며 영문 대/소문자, 숫자를 포함해야 합니다."
+        return "8자 이상이며 영문 대/소문자, 숫자, 특수문자를 포함해야 합니다."
