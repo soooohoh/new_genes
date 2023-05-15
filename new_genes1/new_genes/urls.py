@@ -17,10 +17,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from Gene.views import CustomPasswordChangeView
 
 urlpatterns = [
+    # admin Url 패턴
     path('admin/', admin.site.urls),
+
+    #Gene applicatiion Url 패턴
     path('', include('Gene.urls')),
+
+
+    
+    # password change Url패턴
+    path("password/change/", CustomPasswordChangeView.as_view(), name="account_change_password"),
+
     path('', include('allauth.urls')),
 ]
 

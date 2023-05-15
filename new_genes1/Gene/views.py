@@ -20,6 +20,7 @@ from allauth.account.models import EmailAddress
 from Gene.models import  User, Property
 from Gene.forms import GeneForm, User_Profile_Form
 from .models import Property, Gene, Eating_Habits, LifeStyle
+from allauth.account.views import PasswordChangeView
 
 
 
@@ -80,6 +81,9 @@ class ProfileReadView(DetailView):
     pk_url_kwarg = "user_id"
     context_object_name = "profile_user"
 
+
+
+
 #프로필 Create
 class ProfileSetView(UpdateView):
     model = User
@@ -91,6 +95,9 @@ class ProfileSetView(UpdateView):
     
     def get_success_url(self):
         return reverse("home")
+    
+
+
 
 
 #프로필 Update
@@ -122,7 +129,11 @@ def ProfileUpdateView(request, user_id):
 
 
 
-
+# 패스워드 변경 뷰
+class CustomPasswordChangeView(PasswordChangeView):
+    
+    def get_success_url(self):
+        return reverse('profile', kwargs={'user_id' : self.request.user.id})
 
 
 

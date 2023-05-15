@@ -118,7 +118,8 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/uploads/"
 
 #Auth settings
 AUTH_USER_MODEL = 'Gene.User'
@@ -147,5 +148,3 @@ SESSION_COOKIE_AGE = 3600
 # Email_settings
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-#Media세팅
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
