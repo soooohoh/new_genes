@@ -9,6 +9,14 @@
     </div>
 
     <div>
+        닉네임<br>
+        {{form.nickname}}
+        {% for error in form.nickname.errors %}
+            <div class="error-message" style="color: red;"><strong>{{error}}</strong></div>
+        {% endfor %}
+    </div>
+
+    <div>
         상태메세지<br>
         {{form.intro}}
     </div>

@@ -118,7 +118,7 @@ def ProfileUpdateView(request, user_id):
     else:
         user_form = User_Profile_Form(instance=object)
         
-    return render(request, "Profile/profile_set_form.html", {'form' : user_form})
+    return render(request, "Profile/profile_form.html", {'form' : user_form})
 
 
 
