@@ -1,10 +1,6 @@
 from django import forms
 from .models import Gene
 from .models import User
-class GeneForm(forms.ModelForm):
-    class Meta:
-        model = Gene
-        fields = ['type']
 
 
 class SignupForm(forms.ModelForm):
