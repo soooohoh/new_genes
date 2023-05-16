@@ -10,4 +10,4 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Eating_Habits)
 admin.site.register(Gene)
 admin.site.register(LifeStyle)
-UserAdmin.fieldsets += ('Custom fields', {'fields' : ('nickname',)}),
+UserAdmin.fieldsets += ('Custom fields', {'fields' : ('nickname', 'intro', 'goals', 'profile_picture')}),
