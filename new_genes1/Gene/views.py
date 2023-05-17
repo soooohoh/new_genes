@@ -135,8 +135,25 @@ class Gene_Diary_List_View(ListView):
         context['all_diary'] = diary
         return context
     
+
 class Gene_Diary_Detail_View(DetailView):
     model = Diary
     template_name = "Diary/diary_detail.html"
     context_object_name = "diary"
     pk_url_kwarg = "diary_id"
+
+
+class Gene_Diary_Create_View(CreateView):
+    model = Diary
+    template_name = "Diary/diary_form.html"
+    form_class = User_Diary_Form
+
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse("gene_diary_detail", kwargs={"diary_id" : self.object.id})
+
+

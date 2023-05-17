@@ -54,9 +54,9 @@ class Diary(models.Model):
         (5, '★★★★★')
     ]
     feeling_rating = models.IntegerField(choices=rating)
-    diary_image = models.ImageField(blank=True)
-    diary_image2 = models.ImageField(blank=True)
-    diary_image3 = models.ImageField(blank=True)
+    diary_image = models.ImageField(blank=True, upload_to="diary_pics")
+    diary_image2 = models.ImageField(blank=True, upload_to="diary_pics")
+    diary_image3 = models.ImageField(blank=True, upload_to="diary_pics")
     content = models.TextField()
     dt_created = models.DateField(auto_now_add=True)
     dt_updated = models.DateField(auto_now=True)

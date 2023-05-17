@@ -30,4 +30,7 @@ class User_Diary_Form(forms.ModelForm):
             'diary_image3',
             'content',
             ]
+        widgets = {
+            'feeling_rating': forms.RadioSelect
+        }
     
