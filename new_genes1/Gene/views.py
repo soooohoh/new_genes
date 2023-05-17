@@ -17,8 +17,8 @@ from django.views.generic import (ListView,
                                   UpdateView,
                                   DeleteView)
 from allauth.account.models import EmailAddress
-from Gene.models import  User, Property
-from Gene.forms import User_Profile_Form
+from Gene.models import  User, Property, Diary
+from Gene.forms import User_Profile_Form, User_Diary_Form
 from .models import Property, Gene, Eating_Habits, LifeStyle
 from allauth.account.views import PasswordChangeView
 
@@ -71,6 +71,8 @@ def daily_question(request):
 
 
 
+
+
 #프로필 Read
 class ProfileReadView(DetailView):
     model = User
@@ -95,22 +97,7 @@ class ProfileSetView(UpdateView):
     
 
 
-
-
 #프로필 Update
-#class ProfileUpdateView(UpdateView):
- #   model = User
-  #  form_class = User_Profile_Form
-   # template_name = 'Profile/profile_form.html'
-   # pk_url_kwarg = 'user_id'
-
-
-    #def get_success_url(self):
-    #    return reverse("home")     
-    #def get_success_url(self):
-    #    user_id = self.kwargs.get("user_id")
-    #    return reverse('profile', kwargs={ "user_id" : user_id })
-
 def ProfileUpdateView(request, user_id):
     object = User.objects.get(id=user_id)
     if request.method=="POST":
@@ -133,4 +120,10 @@ class CustomPasswordChangeView(PasswordChangeView):
         return reverse('profile', kwargs={'user_id' : self.request.user.id})
 
 
-
+class Gene_Diary_List_View(ListView):
+    model = Diary
+    template_name = "Diary/diary_list.html"
+    context_object_name = "diary"
+    paginate_by = 4
+    ordering = ['-dt_created']
+    

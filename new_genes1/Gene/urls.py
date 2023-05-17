@@ -17,8 +17,10 @@ urlpatterns = [
     #아바타게임
     path('avartar_game/', views.avatar_game, name='avatar_game'),
 
-
-
+    #유전일기
+    path('gene_diary_list/<int:user_id>', views.Gene_Diary_List_View.as_view(), name='gene_diary_list'),
+    
+    
     #프로필profile
     path('mypage/profile/<int:user_id>/', views.ProfileReadView.as_view(), name='profile'),
     path("set-profile/", views.ProfileSetView.as_view(), name="profile-set"),

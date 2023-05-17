@@ -42,3 +42,22 @@ class Eating_Habits(models.Model):
 class LifeStyle(models.Model):
     gene_name = models.CharField(max_length=20)
     style = models.TextField()
+    
+class Diary(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50, null=True)
+    rating = [
+        (1, '★'),
+        (2, '★★'),
+        (3, '★★★'),
+        (4, '★★★★'),
+        (5, '★★★★★')
+    ]
+    feeling_rating = models.IntegerField(choices=rating)
+    diary_image = models.ImageField(blank=True)
+    diary_image2 = models.ImageField(blank=True)
+    diary_image3 = models.ImageField(blank=True)
+    content = models.TextField()
+    dt_created = models.DateField(auto_now_add=True)
+    dt_updated = models.DateField(auto_now=True)
+    
