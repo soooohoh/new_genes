@@ -20,12 +20,13 @@ class Property(models.Model):
     title = models.CharField(max_length=50)
     descript = models.TextField()
 
-    #유전자 종류
+#유전자 종류
 class Gene(models.Model):
     property = models.ForeignKey(Property, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=10, primary_key=True)
     description = models.TextField()
-    type = models.CharField(max_length=2)
+    warnning_type = models.CharField(max_length=2, null=True)
+    good_type = models.CharField(max_length=2, null=True)
     
 
 

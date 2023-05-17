@@ -18,7 +18,7 @@ from django.views.generic import (ListView,
                                   DeleteView)
 from allauth.account.models import EmailAddress
 from Gene.models import  User, Property
-from Gene.forms import GeneForm, User_Profile_Form
+from Gene.forms import User_Profile_Form
 from .models import Property, Gene, Eating_Habits, LifeStyle
 from allauth.account.views import PasswordChangeView
 
@@ -44,15 +44,12 @@ def property_confirm(request):
     
     return render(request, 'Gene/property_confirm.html', context=context)
 
-def gene_register(request, property_id):
-    if request.POST=="POST":
-        return render(request, 'Gene/property_confirm.html')
-                    
-    else:
-        data = Gene.objects.filter(property=property_id)
-        context=dict()
-        context['gene']=data
-        return render(request, 'Gene/gene_register.html', context=context)
+def gene_info(request, property_id):
+    context = dict()
+    gene_data = Gene.objects.filter(property_id=property_id)
+    context['gene_data'] = gene_data
+    return render(request, 'Gene/gene_info.html', context=context)
+
 
 def habits(request, gene_name):    
     data = Eating_Habits.objects.filter(gene_name=gene_name) # get방식으로 가져오면 multiple에러???
