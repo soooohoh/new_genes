@@ -3,12 +3,29 @@
 
 <p>총 11개 특성 中 각각에 해당하는 유전자의 종류를 입력해 주세요.</p>
 
-{% for property in property%}
+
+<p>
     <div>
-        <p>
-            {{property.title}}<br>
-            {{property.descript}}<br>
-        <a href={% url 'gene_register' property.id %}>유전자 등록하기!</a>
-        </p>
+        유저 이메일 : {{user.email}}
     </div>
-{% endfor %}
+
+    <div>
+        {{user.nickname}}님 반갑습니다!!
+    </div>
+    <h2>
+        <a href={% url 'property_confirm' %}>
+            Gene
+        </a>
+    </h2>
+    <h2>
+        <a href={% url 'profile' user.id %}>
+            Profile
+        </a>
+    </h2>
+
+    <h2>
+        <a href="#">
+            Gene_diary
+        </a>
+    </h2>
+</p>

@@ -3,18 +3,32 @@ from django.contrib.auth.models import AbstractUser
 from .validators import validate_no_special_characters
 # Create your models here.
 
+#유저모델
+class User(AbstractUser):
+    nickname = models.CharField(max_length=20, unique=True, null=True,
+                                validators=[validate_no_special_characters])
+    intro = models.TextField(null=True)
+    profile_picture = models.ImageField(upload_to="profile_pics", default="default_profile_pic.jpg")
+    goals = models.TextField(null=True)
+    
+    def __str__(self):
+        return self.email
+    
+
 #외형적, 내형적 특성 11개
 class Property(models.Model):
     title = models.CharField(max_length=50)
     descript = models.TextField()
 
-
-#유전자 종류
+    #유전자 종류
 class Gene(models.Model):
-    property_id = models.ForeignKey(Property, related_name="property", on_delete=models.CASCADE, db_column="property_id", null=True)
+    property = models.ForeignKey(Property, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=10, primary_key=True)
     description = models.TextField()
     type = models.CharField(max_length=2)
+    
+
+
 #생활습관, 식습관
 
 class Eating_Habits(models.Model):
@@ -24,19 +38,6 @@ class Eating_Habits(models.Model):
     foods = models.TextField(null=True)
 
 
-class Lifestyle(models.Model):
-    gene_name = models.CharField(max_length=13)
-    style=models.TextField(null=True)
-
-#유저모델
-class User(AbstractUser):
-    nickname = models.CharField(max_length=20, unique=True, null=True,
-                                validators=[validate_no_special_characters])
-    
-    def __str__(self):
-        return self.email
-    
-    
-    
-    
-    
+class LifeStyle(models.Model):
+    gene_name = models.CharField(max_length=20)
+    style = models.TextField()

@@ -1,0 +1,32 @@
+
+
+<h1>프로필을 설정합니다.</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <div>
+        {{form.profile_picture}}<br>
+    </div>
+
+
+    <div>
+        닉네임 <br>
+         {{form.nickname}}
+         {% for error in form.nickname.errors %}
+            <div class="error-message" style="color: red;"><strong>{{error}}</strong></div>
+         {% endfor %}
+    </div>
+
+    <div>
+        상태 메세지 <br>
+         {{form.intro}}
+    </div>
+
+
+    <div>
+        올 한해 원하시는 목표를 적어주세요!! <br>
+        {{form.goals}}
+    </div>
+
+    <button type="submit">완료!!</button>
+</form>
