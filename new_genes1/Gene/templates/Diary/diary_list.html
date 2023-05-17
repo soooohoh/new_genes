@@ -2,17 +2,20 @@
 
 <div>
     {% for diary in all_diary %}
-        <div style="margin: 80px 80px">
-            <img src={{diary.image.url}}><br>
-
-        
-            {{diary.title}}<br>
+        <a href={% url 'gene_diary_detail' diary.id %}>
+            <div style="margin: 80px 80px">
+                {% if diary.diary_image %}
+                    <img src={{diary.diary_image.url}}><br>
+                {% endif %}
             
-            {{diary.feeling_rating}}<br>
+                {{diary.title}}<br>
+                
+                {{diary.feeling_rating}}<br>
 
-            
+                
 
-            {{diary.content}}<br>
-        </div>
+                {{diary.content}}<br>
+            </div>
+        </a>
     {% endfor %}
 </div>

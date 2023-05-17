@@ -1,0 +1,30 @@
+
+
+<div>
+    <h1>{{diary.title}}</h1>
+</div>
+
+<div>
+    <h2>{{diary.feeling_rating}}</h2>
+</div>
+
+<div>
+    <img src={{diary.diary_image.url}}>
+</div>
+
+<div>
+    {{diary.content|linebreaksbr}}
+</div>
+
+<div>
+    <p>
+        <date>작성일 - {{diary.dt_created|date:"Y년 n월 j일"}}</date><br>
+        <date>수정일 - {{diary.dt_updated|date:"Y년 n월 j일"}}</date><br>
+    </p>
+
+    <footer>
+        <a href="#">수정하기</a>
+        <a href="#" style="margin-left: 80px">삭제하기</a>
+        <a href="#" style="margin-left: 80px">돌아가기</a>
+    </footer>
+</div>

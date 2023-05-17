@@ -7,7 +7,7 @@
 #from Gene.models import LifeStyle
 #from django.views.generic import DetailView, UpdateView
 #from django.urls import reverse
-from typing import Any, Optional
+from typing import Any, Dict, Optional
 from django.db import models
 from django.shortcuts import render, redirect ,get_object_or_404
 from django.urls import reverse
@@ -82,7 +82,6 @@ class ProfileReadView(DetailView):
 
 
 
-
 #프로필 Create
 class ProfileSetView(UpdateView):
     model = User
@@ -120,11 +119,24 @@ class CustomPasswordChangeView(PasswordChangeView):
         return reverse('profile', kwargs={'user_id' : self.request.user.id})
 
 
+
+# 다이어리 Read 뷰
 class Gene_Diary_List_View(ListView):
     model = Diary
     template_name = "Diary/diary_list.html"
-    context_object_name = "all_diary"
     pk_url_kwarg = "user_id"
-    paginate_by = 4
+    paginate_by = 2
     ordering = ['-dt_created']
+
+    #특정 유저가 작성한 다이어리만을 뽑는다.
+    def get_context_data(self, **kargs):
+        context = super().get_context_data(**kargs)
+        diary = Diary.objects.filter(user_id=self.request.user.id)
+        context['all_diary'] = diary
+        return context
     
+class Gene_Diary_Detail_View(DetailView):
+    model = Diary
+    template_name = "Diary/diary_detail.html"
+    context_object_name = "diary"
+    pk_url_kwarg = "diary_id"

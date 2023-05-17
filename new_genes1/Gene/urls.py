@@ -2,8 +2,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    #마이페이지
+    #홈
     path('', views.home, name='home'),
+
+
+    
     path('mypage/', views.my_page, name='my_page'),
     path('mypage/properties/', views.property_confirm, name='property_confirm'),
     path('mypage/properties/gene_info/<int:property_id>', views.gene_info, name='gene_info'),
@@ -19,11 +22,12 @@ urlpatterns = [
 
     #유전일기
     path('gene_diary_list/<int:user_id>', views.Gene_Diary_List_View.as_view(), name='gene_diary_list'),
+    path('gene_diary_list/gene_diary_detail_view/<int:diary_id>/', views.Gene_Diary_Detail_View.as_view(), name='gene_diary_detail'),
     
-    
+
     #프로필profile
-    path('mypage/profile/<int:user_id>/', views.ProfileReadView.as_view(), name='profile'),
+    path('profile/<int:user_id>/', views.ProfileReadView.as_view(), name='profile'),
     path("set-profile/", views.ProfileSetView.as_view(), name="profile-set"),
     #path('mypage/profile/<int:user_id>/edit/', views.ProfileUpdateView.as_view(), name='profile-update'),
-    path('mypage/profile/<int:user_id>/edit/', views.ProfileUpdateView, name='profile-update'),
+    path('profile/<int:user_id>/edit/', views.ProfileUpdateView, name='profile-update'),
 ]
