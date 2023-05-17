@@ -1,1 +1,18 @@
-<h1>다이어리 List View</h1>
+<h1>{{user.nickname}}님의 다이어리 List</h1>
+
+<div>
+    {% for diary in all_diary %}
+        <div style="margin: 80px 80px">
+            <img src={{diary.image.url}}><br>
+
+        
+            {{diary.title}}<br>
+            
+            {{diary.feeling_rating}}<br>
+
+            
+
+            {{diary.content}}<br>
+        </div>
+    {% endfor %}
+</div>

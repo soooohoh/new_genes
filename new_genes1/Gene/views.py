@@ -123,7 +123,8 @@ class CustomPasswordChangeView(PasswordChangeView):
 class Gene_Diary_List_View(ListView):
     model = Diary
     template_name = "Diary/diary_list.html"
-    context_object_name = "diary"
+    context_object_name = "all_diary"
+    pk_url_kwarg = "user_id"
     paginate_by = 4
     ordering = ['-dt_created']
     
