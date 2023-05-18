@@ -173,3 +173,11 @@ class Gene_Diary_Update_View(UpdateView):
         return reverse("gene_diary_detail", kwargs={"diary_id" : self.object.id})
 
 
+class Gene_Diary_Delete_View(DeleteView):
+    model = Diary
+    pk_url_kwarg = "diary_id"
+    get_object_name = "diary"
+    template_name = "Diary/diary_delete.html"
+
+    def get_success_url(self):
+        return reverse("gene_diary_list", kwargs={"user_id" : self.request.user.id})

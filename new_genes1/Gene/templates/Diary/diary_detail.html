@@ -24,7 +24,7 @@
 
     <footer>
         <a href={% url 'gene_diary_update' diary.id %}>수정하기</a>
-        <a href="#" style="margin-left: 80px">삭제하기</a>
+        <a href={% url 'gene_diary_delete' diary.id %} style="margin-left: 80px">삭제하기</a>
         <a href={% url 'gene_diary_list' diary.user.id %} style="margin-left: 80px">돌아가기</a>
     </footer>
 </div>

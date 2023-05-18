@@ -25,6 +25,8 @@ urlpatterns = [
     path('gene_diary_list/gene_diary_detail_view/<int:diary_id>/', views.Gene_Diary_Detail_View.as_view(), name='gene_diary_detail'),
     path('gene_diary_list/gene_diary_create/', views.Gene_Diary_Create_View.as_view(), name='gene_diary_create'),
     path('gene_diary_list/gene_diary_detail_view/<int:diary_id>/edit', views.Gene_Diary_Update_View.as_view(), name="gene_diary_update"),
+    path('gene_diary_list/gene_diary_detail_view/<int:diary_id>/delete', views.Gene_Diary_Delete_View.as_view(), name="gene_diary_delete"),
+
 
     #프로필profile
     path('profile/<int:user_id>/', views.ProfileReadView.as_view(), name='profile'),
