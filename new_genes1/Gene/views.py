@@ -161,5 +161,15 @@ class Gene_Diary_Create_View(CreateView):
 
     def get_success_url(self):
         return reverse('gene_diary_detail', kwargs={"diary_id" : self.object.id})
+    
+
+class Gene_Diary_Update_View(UpdateView):
+    model = Diary
+    pk_url_kwarg = "diary_id"
+    template_name = "Diary/diary_form.html"
+    form_class = User_Diary_Form
+
+    def get_success_url(self):
+        return reverse("gene_diary_detail", kwargs={"diary_id" : self.object.id})
 
 
