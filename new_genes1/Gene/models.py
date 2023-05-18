@@ -43,6 +43,7 @@ class LifeStyle(models.Model):
     gene_name = models.CharField(max_length=20)
     style = models.TextField()
     
+    #다이어리
 class Diary(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, null=True)
@@ -53,10 +54,10 @@ class Diary(models.Model):
         (4, '★★★★'),
         (5, '★★★★★')
     ]
-    feeling_rating = models.IntegerField(choices=rating)
-    diary_image = models.ImageField(blank=True, upload_to="diary_pics")
-    diary_image2 = models.ImageField(blank=True, upload_to="diary_pics")
-    diary_image3 = models.ImageField(blank=True, upload_to="diary_pics")
+    feeling_rating = models.IntegerField(choices=rating, default=None)
+    diary_image = models.ImageField(upload_to="diary_pics")
+    diary_image2 = models.ImageField(upload_to="diary_pics", blank = True)
+    diary_image3 = models.ImageField(upload_to="diary_pics", blank = True)
     content = models.TextField()
     dt_created = models.DateField(auto_now_add=True)
     dt_updated = models.DateField(auto_now=True)

@@ -125,14 +125,19 @@ class Gene_Diary_List_View(ListView):
     model = Diary
     template_name = "Diary/diary_list.html"
     pk_url_kwarg = "user_id"
-    paginate_by = 2
-    ordering = ['-dt_created']
+    paginate_by = 4
+    context_object_name = "all_diary"
+
+
+    def get_queryset(self):
+        user_id = self.kwargs.get("user_id")
+        return Diary.objects.filter(user__id=user_id).order_by("-dt_created")
+    
 
     #특정 유저가 작성한 다이어리만을 뽑는다.
     def get_context_data(self, **kargs):
         context = super().get_context_data(**kargs)
-        diary = Diary.objects.filter(user_id=self.request.user.id)
-        context['all_diary'] = diary
+        context['profile_user'] = get_object_or_404(User, id=self.kwargs.get("user_id"))
         return context
     
 
@@ -145,15 +150,15 @@ class Gene_Diary_Detail_View(DetailView):
 
 class Gene_Diary_Create_View(CreateView):
     model = Diary
-    template_name = "Diary/diary_form.html"
     form_class = User_Diary_Form
+    template_name = "Diary/diary_form.html"
 
-    
-    def form_valid(self, form):
+    # 생성 중인 다이어리의 외래키가 현재 로그인 한 유저로 설정.
+    def form_valid(self, form): 
         form.instance.user = self.request.user
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse("gene_diary_detail", kwargs={"diary_id" : self.object.id})
+        return reverse('gene_diary_detail', kwargs={"diary_id" : self.object.id})
 
 

@@ -1,4 +1,4 @@
-<h1>{{user.nickname}}님의 다이어리 List</h1>
+<h1>{{profile_user.nickname}}님의 다이어리 List</h1>
 
 <div>
     {% for diary in all_diary %}
@@ -19,5 +19,8 @@
         </a>
     {% endfor %}
 </div>
+
+
+
 
 <footer style="margin: 80px 80px"><a href="gene_diary_create">유전일기 작성하기!!</a></footer>
