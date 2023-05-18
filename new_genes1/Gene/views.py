@@ -126,12 +126,13 @@ class Gene_Diary_List_View(ListView):
     template_name = "Diary/diary_list.html"
     pk_url_kwarg = "user_id"
     paginate_by = 4
+    #ordering = ["dt_created"]
     context_object_name = "all_diary"
 
 
     def get_queryset(self):
         user_id = self.kwargs.get("user_id")
-        return Diary.objects.filter(user__id=user_id).order_by("-dt_created")
+        return Diary.objects.filter(user__id=user_id).order_by("dt_created")
     
 
     #특정 유저가 작성한 다이어리만을 뽑는다.
