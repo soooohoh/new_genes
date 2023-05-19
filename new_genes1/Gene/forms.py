@@ -34,3 +34,16 @@ class User_Diary_Form(forms.ModelForm):
             'feeling_rating': forms.RadioSelect
         }
     
+class User_Gene_Register_Form(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            'FTO_gene',
+            'MC4R_gene',
+            'BDNF_gene',
+        ]
+        widgets={
+            'FTO_gene': forms.RadioSelect,
+            'MC4R_gene': forms.RadioSelect,
+            'BDNF_gene': forms.RadioSelect,
+        }

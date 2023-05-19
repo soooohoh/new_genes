@@ -18,7 +18,7 @@ from django.views.generic import (ListView,
                                   DeleteView)
 from allauth.account.models import EmailAddress
 from Gene.models import  User, Property, Diary
-from Gene.forms import User_Profile_Form, User_Diary_Form
+from Gene.forms import User_Profile_Form, User_Diary_Form, User_Gene_Register_Form
 from .models import Property, Gene, Eating_Habits, LifeStyle
 from allauth.account.views import PasswordChangeView
 
@@ -132,7 +132,7 @@ class Gene_Diary_List_View(ListView):
 
     def get_queryset(self):
         user_id = self.kwargs.get("user_id")
-        return Diary.objects.filter(user__id=user_id).order_by("dt_created")
+        return Diary.objects.filter(user__id=user_id).order_by("-dt_created")
     
 
     #특정 유저가 작성한 다이어리만을 뽑는다.
@@ -181,3 +181,10 @@ class Gene_Diary_Delete_View(DeleteView):
 
     def get_success_url(self):
         return reverse("gene_diary_list", kwargs={"user_id" : self.request.user.id})
+
+#유전자 등록하기
+def gene_register(request):
+    property = Property.objects.all()
+    context = dict()
+    context['property']=property
+    return render(request, 'Gene_register/gene_register_list.html', context=context)

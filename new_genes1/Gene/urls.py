@@ -33,4 +33,8 @@ urlpatterns = [
     path("set-profile/", views.ProfileSetView.as_view(), name="profile-set"),
     #path('mypage/profile/<int:user_id>/edit/', views.ProfileUpdateView.as_view(), name='profile-update'),
     path('profile/<int:user_id>/edit/', views.ProfileUpdateView, name='profile-update'),
+
+    #유전자 등록
+    path('mypage/properties/gene_register/', views.gene_register, name='gene_register'),
+
 ]
