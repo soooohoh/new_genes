@@ -33,5 +33,5 @@ urlpatterns = [
 
     path('', include('allauth.urls')),
 ]
-                        #MEDIA에대한 요청이 들어오면...       MEDIA_ROOT안에 있는 media파일을 돌려주어라...
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

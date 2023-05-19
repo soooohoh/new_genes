@@ -1,7 +1,6 @@
 from django import forms
 from .models import Gene
 from .models import User
-from .models import Diary
 
 
 class SignupForm(forms.ModelForm):
@@ -17,20 +16,3 @@ class User_Profile_Form(forms.ModelForm):
     class Meta:
         model = User
         fields = ['nickname', 'intro', 'profile_picture', 'goals']
-        
-
-class User_Diary_Form(forms.ModelForm):
-    class Meta:
-        model = Diary
-        fields = [
-            'title', 
-            'feeling_rating', 
-            'diary_image',
-            'diary_image2',
-            'diary_image3',
-            'content',
-            ]
-        widgets = {
-            'feeling_rating': forms.RadioSelect
-        }
-    
