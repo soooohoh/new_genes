@@ -10,24 +10,26 @@ class User(AbstractUser):
     intro = models.TextField(null=True)
     profile_picture = models.ImageField(upload_to="profile_pics", default="default_profile_pic.jpg")
     goals = models.TextField(null=True)
+    # Fat Form
     rating_FTO = [
         (1, 'TT'),
         (2, 'TA'),
         (3, 'AA')
     ]
-    FTO_gene = models.IntegerField(choices=rating_FTO, default=None, null=True)
+    FTO_gene = models.IntegerField(choices=rating_FTO, default=None, null=True,)
     rating_MC4R = [
         (1, 'TT'),
         (2, 'TC'),
         (3, 'CC')
     ]
-    MC4R_gene = models.IntegerField(choices=rating_MC4R, default=None, null=True)
+    MC4R_gene = models.IntegerField(choices=rating_MC4R, default=None, null=True,)
     rating_BDNF = [
         (1, 'AA'),
         (2, 'AG'),
         (3, 'GG')
     ]
-    BDNF_gene = models.IntegerField(choices=rating_BDNF, default=None, null=True)
+    BDNF_gene = models.IntegerField(choices=rating_BDNF, default=None, null=True, )
+
 
 
     def __str__(self):

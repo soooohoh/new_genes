@@ -34,7 +34,7 @@ class User_Diary_Form(forms.ModelForm):
             'feeling_rating': forms.RadioSelect
         }
     
-class User_Gene_Register_Form(forms.ModelForm):
+class User_Gene_Register_Form_Fat(forms.ModelForm):
     class Meta:
         model = User
         fields = [

@@ -18,7 +18,7 @@ from django.views.generic import (ListView,
                                   DeleteView)
 from allauth.account.models import EmailAddress
 from Gene.models import  User, Property, Diary
-from Gene.forms import User_Profile_Form, User_Diary_Form, User_Gene_Register_Form
+from Gene.forms import User_Profile_Form, User_Diary_Form, User_Gene_Register_Form_Fat
 from .models import Property, Gene, Eating_Habits, LifeStyle
 from allauth.account.views import PasswordChangeView
 
@@ -42,7 +42,7 @@ def property_confirm(request):
     data = Property.objects.all()
     context['property'] = data
     
-    return render(request, 'Gene/property_confirm.html', context=context)
+    return render(request, 'Gene/properties.html', context=context)
 
 def gene_info(request, property_id):
     context = dict()
@@ -66,9 +66,6 @@ def avatar_game(request):
 
 def daily_question(request):
     return render(request, 'Gene/daily_question.html')
-
-
-
 
 
 
@@ -183,8 +180,10 @@ class Gene_Diary_Delete_View(DeleteView):
         return reverse("gene_diary_list", kwargs={"user_id" : self.request.user.id})
 
 #유전자 등록하기
-def gene_register(request):
-    property = Property.objects.all()
+def property_detail(request, property_id):
     context = dict()
-    context['property']=property
-    return render(request, 'Gene_register/gene_register_list.html', context=context)
+    gene_data = Gene.objects.filter(property_id=property_id)
+    context['gene_data'] = gene_data
+    return render(request, 'Gene/property_detail.html', context=context)    
+
+

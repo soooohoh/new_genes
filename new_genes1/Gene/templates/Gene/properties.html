@@ -1,0 +1,15 @@
+
+
+{{user.get_FTO_gene_display}}
+{{user.get_MC4R_gene_display}}
+{{user.get_BDNF_gene_display}}
+
+{% for property in property%}
+    <div>
+        <p>
+            {{property.title}}<br>
+            {{property.descript}}<br>
+            <a href={% url 'property_detail' property.id %}>내 유전자 등록 하기~!!</a>
+        </p>
+    </div>
+{% endfor %}

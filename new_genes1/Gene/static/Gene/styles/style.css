@@ -36,3 +36,8 @@
     margin-right: 220px;
     flex-grow: 1;
   }
+
+  .gene_register_form{
+    display: inline;
+    margin-left: 200px
+  }

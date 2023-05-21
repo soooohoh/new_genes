@@ -35,6 +35,5 @@ urlpatterns = [
     path('profile/<int:user_id>/edit/', views.ProfileUpdateView, name='profile-update'),
 
     #유전자 등록
-    path('mypage/properties/gene_register/', views.gene_register, name='gene_register'),
-
+    path('mypage/properties/property_detail/<int:property_id>', views.property_detail, name='property_detail'),
 ]

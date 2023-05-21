@@ -1,0 +1,22 @@
+{% extends 'gene_base/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+    <div>
+        {% for gene in gene %}
+            <div style="display: inline; margin-left: 200px">
+                {{gene.name}}
+            </div>
+        {% endfor %}
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        {% for form in form %}
+                {{form}}
+        {% endfor %}
+        <button type="submit">완료!!</button>
+    </form>
+
+{% endblock content %}
