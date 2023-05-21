@@ -1,0 +1,12 @@
+<h1>등록中</h1>
+{{user.nickname}}님의 유전자는 다음과 같습니다.....<br>
+{% for gene in gene %}
+    {{gene.name}}
+{% endfor %}
+
+<form method="post">{% csrf_token %}
+    {% for form in form %}
+        {{form}}
+    {% endfor %}
+    <button type="submit">확인</button>
+</form>

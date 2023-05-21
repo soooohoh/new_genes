@@ -36,4 +36,5 @@ urlpatterns = [
 
     #유전자 등록
     path('mypage/properties/property_detail/<int:property_id>', views.property_detail, name='property_detail'),
+    path('gene_register/<property_id>', views.gene_register, name='gene_register'),
 ]

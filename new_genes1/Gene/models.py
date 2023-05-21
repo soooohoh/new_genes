@@ -47,6 +47,7 @@ class Gene(models.Model):
     name = models.CharField(max_length=10, primary_key=True)
     description = models.TextField()
     warnning_type = models.CharField(max_length=2, null=True)
+    middle_type = models.CharField(max_length=2, null=True)
     good_type = models.CharField(max_length=2, null=True)
     
 

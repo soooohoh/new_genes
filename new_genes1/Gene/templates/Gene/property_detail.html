@@ -9,12 +9,16 @@
                     {{gene.description}}<br><br>
 
                     양호 유전형 -->{{gene.good_type}}<br>
-
+                    주의 유전형 --> {{gene.middle_type}}<br>
                     위험 유전형 -->{{gene.warnning_type}}<span></span><br>
                 </p>
             </div>
+
+            <div style="margin-bottom: 40px; padding-left:500px;">
+                <a href="#">생활습관&식습관 꿀팁!! for  {{gene.name}}</a>
+            </div>
         {% endfor %}
-        <a href="#"><h3>등록하기!!</h3></a>
+        <a href={% url 'gene_register' property.id %}><h3>내 유전자 확인/수정 하기!!</h3></a>
             
         
    

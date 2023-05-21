@@ -182,8 +182,28 @@ class Gene_Diary_Delete_View(DeleteView):
 #유전자 등록하기
 def property_detail(request, property_id):
     context = dict()
+    property = Property.objects.get(id=property_id)
     gene_data = Gene.objects.filter(property_id=property_id)
     context['gene_data'] = gene_data
+    context['property'] = property
     return render(request, 'Gene/property_detail.html', context=context)    
 
-
+def gene_register(request, property_id):
+    context=dict()
+    user = User.objects.get(id=request.user.id)
+    property = Property.objects.get(id=property_id)
+    gene = Gene.objects.filter(property_id=property_id)
+    context['gene'] = gene
+    if property.id == 1:
+        if request.method == "POST":            
+            user_form = User_Gene_Register_Form_Fat(request.POST, instance=user)
+            new_form = user_form.save()
+            return redirect('property_detail', property_id=property.id)
+        else:
+            user_form = User_Gene_Register_Form_Fat(instance=user)
+            context['form'] = user_form
+            return render(request, 'Gene_register/gene_register.html', context=context)
+    else:
+        pass
+    
+    
