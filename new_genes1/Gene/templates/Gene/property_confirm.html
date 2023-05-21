@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>마이페이지</h1>
 <h2>본인의 검사 결과지를 바탕으로 최대한 비슷하게 작성 해 주세요!!</h2>
 
@@ -11,4 +12,16 @@
         <a href={% url 'gene_info' property.id %}>유전자 정보</a>
         </p>
     </div>
+=======
+
+
+{% for property in property%}
+    <div>
+        <p>
+            {{property.title}}<br>
+            {{property.descript}}<br>
+        <a href={% url 'gene_info' property.id %}>유전자 정보</a>
+        </p>
+    </div>
+>>>>>>> 4ca6192e24e793c4a9b51441f48dee89750917f2
 {% endfor %}
