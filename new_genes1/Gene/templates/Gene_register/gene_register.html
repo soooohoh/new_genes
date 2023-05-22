@@ -1,12 +1,55 @@
-<h1>등록中</h1>
-{{user.nickname}}님의 유전자는 다음과 같습니다.....<br>
-{% for gene in gene %}
-    {{gene.name}}
-{% endfor %}
+<form method="post">
+    {% csrf_token %}
 
-<form method="post">{% csrf_token %}
-    {% for form in form %}
-        {{form}}
-    {% endfor %}
-    <button type="submit">확인</button>
+    <div class="fat">
+        <h2>체질량 지수[FTO]</h2>
+        {{form.FTO_gene}}
+        <h2>체질량 지수[MC4R]</h2>
+        {{form.MC4R_gene}}
+        <h2>체질량 지수[BDNF]</h2>
+        {{form.BDNF_gene}}
+    </div>
+
+    <div class="fat">
+
+    </div>
+
+    <div class="fat">
+        
+    </div>
+
+    <div class="fat">
+        
+    </div>
+
+    <div class="fat">
+        
+    </div>
+
+
+    <div class="fat">
+        
+    </div>
+
+
+    <div class="fat">
+        
+    </div>
+
+    <div class="fat">
+        
+    </div>
+
+    <div class="fat">
+        
+    </div>
+
+    <div class="fat">
+        
+    </div>
+
+    <div class="fat">
+        
+    </div>
+    <div style="margin-left: 1000px"><button type="submit">완료!!</button></div>
 </form>
