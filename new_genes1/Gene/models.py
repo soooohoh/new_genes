@@ -84,3 +84,5 @@ class Diary(models.Model):
     dt_created = models.DateField(auto_now_add=True)
     dt_updated = models.DateField(auto_now=True)
     
+
+    

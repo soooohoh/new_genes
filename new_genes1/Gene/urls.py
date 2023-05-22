@@ -8,7 +8,7 @@ urlpatterns = [
 
     #유전자 정보
     path('mypage/', views.my_page, name='my_page'),
-    path('mypage/properties/', views.property_confirm, name='property_confirm'),
+    path('mypage/properties/', views.property_confirm, name='properties'),
     path('mypage/properties/gene_info/<int:property_id>', views.gene_info, name='gene_info'),
     path('mypage/properties/gene_info/habits/<str:gene_name>', views.habits, name='habits'),
 
@@ -31,10 +31,10 @@ urlpatterns = [
     #프로필profile
     path('profile/<int:user_id>/', views.ProfileReadView.as_view(), name='profile'),
     path("set-profile/", views.ProfileSetView.as_view(), name="profile-set"),
-    #path('mypage/profile/<int:user_id>/edit/', views.ProfileUpdateView.as_view(), name='profile-update'),
     path('profile/<int:user_id>/edit/', views.ProfileUpdateView, name='profile-update'),
 
-    #유전자 등록
+    #유전자 등록/확인
     path('mypage/properties/property_detail/<int:property_id>', views.property_detail, name='property_detail'),
-    path('gene_register/<property_id>', views.gene_register, name='gene_register'),
+    path('mypage/properties/gene_confirm/<int:user_id>', views.gene_confirm, name='gene_confirm'),
+    path('mypage/properties/gene_register/<int:user_id>', views.gene_register, name='gene_register'),
 ]

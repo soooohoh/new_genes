@@ -9,7 +9,16 @@
         <p>
             {{property.title}}<br>
             {{property.descript}}<br>
-            <a href={% url 'property_detail' property.id %}>내 유전자 등록 하기~!!</a>
+            <a href={% url 'property_detail' property.id %}>{{property.title}}??</a>
         </p>
     </div>
 {% endfor %}
+
+<footer style="margin-left: 1000px">
+    <h1>
+        <a href={% url 'gene_confirm' user.id%}>내 유전자 확인하기!</a>
+    </h1>
+    <h2>
+        <a href={% url 'gene_register' user.id %}>내 유전자 등록/수정 하기!!</a>
+    </h2>
+</footer>

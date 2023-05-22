@@ -1,5 +1,8 @@
 <h1>유전자 등록 페이지<h1>
 
+    {% for gene in user_gene %}
+        {{gene}}
+    {% endfor %}
 
         {% for gene in gene_data %}
             <div>
@@ -18,7 +21,7 @@
                 <a href="#">생활습관&식습관 꿀팁!! for  {{gene.name}}</a>
             </div>
         {% endfor %}
-        <a href={% url 'gene_register' property.id %}><h3>내 유전자 확인/수정 하기!!</h3></a>
+        <a href="#"><h3>내 유전자 확인/수정 하기!!</h3></a>
             
         
    

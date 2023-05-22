@@ -18,7 +18,7 @@ from django.views.generic import (ListView,
                                   DeleteView)
 from allauth.account.models import EmailAddress
 from Gene.models import  User, Property, Diary
-from Gene.forms import User_Profile_Form, User_Diary_Form, User_Gene_Register_Form_Fat
+from Gene.forms import User_Profile_Form, User_Diary_Form, User_Gene_Register_Form
 from .models import Property, Gene, Eating_Habits, LifeStyle
 from allauth.account.views import PasswordChangeView
 
@@ -188,22 +188,46 @@ def property_detail(request, property_id):
     context['property'] = property
     return render(request, 'Gene/property_detail.html', context=context)    
 
-def gene_register(request, property_id):
-    context=dict()
-    user = User.objects.get(id=request.user.id)
-    property = Property.objects.get(id=property_id)
-    gene = Gene.objects.filter(property_id=property_id)
-    context['gene'] = gene
-    if property.id == 1:
-        if request.method == "POST":            
-            user_form = User_Gene_Register_Form_Fat(request.POST, instance=user)
-            new_form = user_form.save()
-            return redirect('property_detail', property_id=property.id)
-        else:
-            user_form = User_Gene_Register_Form_Fat(instance=user)
-            context['form'] = user_form
-            return render(request, 'Gene_register/gene_register.html', context=context)
+#def gene_register(request, property_id):
+#    context=dict()
+#    user = User.objects.get(id=request.user.id)
+#    property = Property.objects.get(id=property_id)
+#    gene = Gene.objects.filter(property_id=property_id)
+#    context['gene'] = gene
+#    if property.id == 1:
+#        if request.method == "POST":            
+#            user_form = User_Gene_Register_Form_Fat(request.POST, instance=user)
+#            new_form = user_form.save()
+#            return redirect('property_detail', property_id=property.id)
+#        else:
+#            user_form = User_Gene_Register_Form_Fat(instance=user)
+#            context['form'] = user_form
+#            return render(request, 'Gene_register/gene_register.html', context=context)
+#    else:
+#        pass
+
+def gene_confirm(request, user_id):
+    return render(request, 'Gene_register/gene_confirm.html')
+    
+    
+def gene_register(request, user_id):
+    user = User.objects.get(id=user_id)
+    context = dict()
+    if request.method == "POST":
+        user_gene_form = User_Gene_Register_Form(request.POST, instance=user)
+        user_form = user_gene_form.save()
+        return redirect('properties')
     else:
-        pass
-    
-    
+        user_gene_form = User_Gene_Register_Form(instance=user)
+        context['form'] = user_gene_form
+
+    return render(request, 'Gene_register/gene_register.html', context=context)
+
+
+
+
+
+
+
+
+
