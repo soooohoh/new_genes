@@ -98,9 +98,8 @@ def ProfileUpdateView(request, user_id):
     object = User.objects.get(id=user_id)
     if request.method=="POST":
         user_form = User_Profile_Form(request.POST, instance=object)
-        if user_form.is_valid():
-            user_form.save()
-            return redirect('profile', user_id=object.id)
+        user_form.save()
+        return redirect('profile', user_id=object.id)
                 
     else:
         user_form = User_Profile_Form(instance=object)

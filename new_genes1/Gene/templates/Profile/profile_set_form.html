@@ -2,7 +2,7 @@
 
 <h1>프로필을 설정합니다.</h1>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div>
         {{form.profile_picture}}<br>

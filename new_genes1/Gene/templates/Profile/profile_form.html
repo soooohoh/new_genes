@@ -2,7 +2,8 @@
 
 
 
-<form method="post">{% csrf_token %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
     <div>
         프로필사진<br>
         {{form.profile_picture}}
