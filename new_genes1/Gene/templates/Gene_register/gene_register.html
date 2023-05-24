@@ -1,0 +1,103 @@
+<form method="post">
+    {% csrf_token %}
+
+    <div class="fat">
+        <h2>체질량 지수[FTO]</h2>
+        {{form.FTO_gene}}
+        <h2>체질량 지수[MC4R]</h2>
+        {{form.MC4R_gene}}
+        <h2>체질량 지수[BDNF]</h2>
+        {{form.BDNF_gene}}
+    </div>
+
+    <div class="fat">
+        <h2>색소침착[OCA2]</h2>
+        {{form.OCA2_gene}}
+        <h2>색소침착[MC1R]</h2>
+        {{form.MC1R_gene}}
+    </div>
+
+    <div class="fat">
+        <h2>탈모[chr20p11(1)]</h2>
+        {{form.chr20p11_1}}
+        <h2>탈모[chr20p11(2)]</h2>
+        {{form.chr20p11_2}}
+        <h2>탈모[IL2RA]</h2>
+        {{form.IL2RA}}
+        <h2>탈모[HLA-DQB1]</h2>
+        {{form.HLA_DQB1}}                   
+    </div>
+
+    <div class="fat">
+        <h2>모발굵기[EDAR]</h2>
+        {{form.EDAR}}    
+    </div>
+
+    <div class="fat">
+        <h2>피부노화[AGER(1)]</h2>
+        {{form.AGER_1}}
+        <h2>피부노화[AGER(2)]</h2>
+        {{form.AGER_2}}     
+    </div>
+
+
+    <div class="fat">
+        <h2>중성지방농도[GCKR]</h2>
+        {{form.GCKR}}
+        <h2>중성지방농도[ANGPTL3]</h2>
+        {{form.ANGPTL3}}
+        <h2>중성지방농도[TRIB1]</h2>
+        {{form.TRIB1}}        
+    </div>
+
+
+    <div class="fat">
+        <h2>콜레스테롤[HMGCR]</h2>
+        {{form.HMGCR}}
+        <h2>콜레스테롤[ABO]</h2>
+        {{form.ABO}}
+        <h2>콜레스테롤[ABCA1]</h2>
+        {{form.ABCA1}}
+        <h2>콜레스테롤[LIPG]</h2>
+        {{form.LIPG}}                  
+    </div>
+
+    <div class="fat">
+        <h2>혈당[DGKB-TMEM195]</h2>
+        {{form.DGKB_TMEM195}}
+        <h2>혈당[CDKN2A/2B]</h2>
+        {{form.CDKN2A_2B}}
+        <h2>혈당[GCK]</h2>
+        {{form.GCK}}      
+        <h2>혈당[GLIS3]</h2>
+        {{form.GLIS3}}          
+    </div>
+
+    <div class="fat">
+        <h2>혈압[GUCY1A3]</h2>
+        {{form.GUCY1A3}}
+        <h2>혈압[FGF5]</h2>
+        {{form.FGF5}}
+        <h2>혈압[ATP2B1]</h2>
+        {{form.ATP2B1}}
+        <h2>혈압[NPR3]</h2>
+        {{form.NPR3}}
+        <h2>혈압[CYP17A1]</h2>
+        {{form.CYP17A1}}                            
+    </div>
+
+    <div class="fat">
+        <h2>비타민C농도[SLC23A1(1)]</h2>
+        {{form.SLC23A1_1}}
+        <h2>비타민C농도[SLC23A1(2)]</h2>
+        {{form.SLC23A1_2}}     
+    </div>
+
+    <div class="fat">
+        <h2>카페인대사[CYP1A1-CYP1A2]</h2>
+        {{form.CYP1A1_CYP1A2}}
+        <h2>카페인대사[AHR]</h2>
+        {{form.AHR}}                
+    </div>
+    <div style="margin-left: 1000px"><button type="submit">완료!!</button></div>
+</form>
