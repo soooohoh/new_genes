@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href={% static 'Gene/styles/style.css' %}>
+        <title>{% block title %}New_Genes{% endblock title %}</title>
+    </head>
+
+
+    <body>
+        {% block content %}{% endblock content %}
+
+    </body>
+
+</html>
