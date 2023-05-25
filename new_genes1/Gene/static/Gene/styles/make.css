@@ -1,0 +1,31 @@
+
+.profile_picture{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-left: 510px;
+    margin-bottom: 50px;
+}
+.profile_image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.profile_nickname{
+    margin-bottom: 50px;
+    font-size: 50px;
+}
+.profile_section{
+    text-align: center;
+}
+.profile_intro{
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+.content_section{
+    margin-bottom: 400px;
+}
+.profile_goals{
+    margin-bottom: 50px;
+}

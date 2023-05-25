@@ -2,33 +2,30 @@
 {% load static %}
 
 
+
 {% block content %}
-    <h1>{{profile_user.nickname}}님의 프로필</h1>
+<div class="profile_section">
 
     <div class="profile_picture">
-        <img src={{profile_user.profile_picture.url}}>
+        <img src={{profile_user.profile_picture.url}} class="profile_image">
     </div>
 
-    <div>
-        <p>
-            닉네임 - {{profile_user.nickname}}
-        </p>
+    <div class="profile_nickname">
+        닉네임 - {{profile_user.nickname}}
     </div>
 
     <div class="profile_intro">
-        <p class="intro">
-            상태 메세지 - {{profile_user.intro}}
-        </p>
+        상태 메세지 - {{profile_user.intro}}
     </div>
 
-    <div class="profle_goals">
-        <p>
+    <div class="profile_goals">
             올 한해 목표<br>
             {{profile_user.goals|linebreaksbr}}
-        </p>
     </div>
 
-    <div>
+    <div class="profile_update">
         <h2><a href={% url 'profile-update' %}>프로필 수정하기</a></h2>
     </div>
+
+</div>
 {% endblock content %}
