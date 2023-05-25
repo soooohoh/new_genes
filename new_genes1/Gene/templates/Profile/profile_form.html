@@ -29,7 +29,7 @@
     
 
     <div>
-        <a href={% url 'account_change_password' %}>비밀번호 변경하기<br></a>
+        <a href={% url 'account_change_password' %}>비밀번호 변경하기<span style="padding-left: 100px"><a href={% url 'profile' user.id %}>취소</a></span></a>
     </div>
     <button type="submit">완료</button>
 </form>
