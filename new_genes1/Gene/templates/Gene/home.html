@@ -1,28 +1,22 @@
-<nabvar>
-    {% if user.is_authenticated %}
-    <a href="{% url 'account_logout' %}">로그아웃</a>
-    {% else %}
-    <a href="{% url 'account_login' %}">로그인</a>
-    <a href="{% url 'account_signup' %}">회원가입</a>
-    {% endif %}
-</nabvar>
+{% extends 'gene_base/base.html' %}
+{% load static %}
 
-<body>
-    {% if user.is_authenticated %}
-        
-        <h1>메인 페이지</h1><br><br>
-        <h2>{{user}}님!! 환영합니다!!</h2>
-        <ul>
-            <li>닉네임 - {{user.nickname}}</li>
-        </ul>
-        <a href={% url 'avatar_game' %}>Avatar-Game</a><br><br><br>
-        <a href={% url 'daily_question' %}>Daily Questions</a><br><br><br>
-        <a href={% url 'properties' %}>About Genes</a><br><br><br>
-        <a href={% url 'gene_diary_list' user.id %}>Gene_Diary</a><br><br><br>
-        <a href={% url 'profile' user.id %}>Profile</a><br><br><br>
-        
-        <br><br><br><br><br><br><br><br><br>      
-    {% else %}
-        <p>로그아웃된 상태입니다.</p>
-    {% endif %}
-</body>
+
+{% block content %}
+        {% if user.is_authenticated %}
+                <h1>메인 페이지</h1><br><br>
+                <h2>{{user}}님!! 환영합니다!!</h2>
+                <ul>
+                    <li>닉네임 - {{user.nickname}}</li>
+                </ul>
+                <a href={% url 'avatar_game' %}>Avatar-Game</a><br><br><br>
+                <a href={% url 'daily_question' %}>Daily Questions</a><br><br><br>
+                <a href={% url 'properties' %}>About Genes</a><br><br><br>
+                <a href={% url 'gene_diary_list' user.id %}>Gene_Diary</a><br><br><br>
+                <a href={% url 'profile' user.id %}>Profile</a><br><br><br>
+                
+                <br><br><br><br><br><br><br><br><br>      
+        {% else %}
+                <p>로그아웃된 상태입니다.</p>
+        {% endif %}
+{% endblock content %}

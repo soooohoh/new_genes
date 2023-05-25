@@ -1,28 +1,34 @@
-<h1>{{profile_user.nickname}}님의 프로필</h1>
+{% extends 'gene_base/base.html' %}
+{% load static %}
 
-<div class="profile_picture">
-    <img src={{profile_user.profile_picture.url}}>
-</div>
 
-<div>
-    <p>
-        닉네임 - {{profile_user.nickname}}
-    </p>
-</div>
+{% block content %}
+    <h1>{{profile_user.nickname}}님의 프로필</h1>
 
-<div class="profile_intro">
-    <p class="intro">
-        상태 메세지 - {{profile_user.intro}}
-    </p>
-</div>
+    <div class="profile_picture">
+        <img src={{profile_user.profile_picture.url}}>
+    </div>
 
-<div class="profle_goals">
-    <p>
-        올 한해 목표<br>
-        {{profile_user.goals|linebreaksbr}}
-    </p>
-</div>
+    <div>
+        <p>
+            닉네임 - {{profile_user.nickname}}
+        </p>
+    </div>
 
-<div>
-    <h2><a href={% url 'profile-update' %}>프로필 수정하기</a></h2>
-</div>
+    <div class="profile_intro">
+        <p class="intro">
+            상태 메세지 - {{profile_user.intro}}
+        </p>
+    </div>
+
+    <div class="profle_goals">
+        <p>
+            올 한해 목표<br>
+            {{profile_user.goals|linebreaksbr}}
+        </p>
+    </div>
+
+    <div>
+        <h2><a href={% url 'profile-update' %}>프로필 수정하기</a></h2>
+    </div>
+{% endblock content %}

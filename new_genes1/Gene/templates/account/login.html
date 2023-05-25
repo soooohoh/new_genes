@@ -1,38 +1,39 @@
 {% extends 'gene_base/base.html' %}
 {% load static %}
 {% load widget_tweaks %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 	<title>Sign Up Page</title>
 </head>
 <body>
+
+
 	{% block header %}
 		<div id="menu">
-			<a href="#">Logo</a>
 			<a href={% url 'home' %}>Home</a>
-			<a href={% url 'account_login' %}>Log In</a>
 		</div>
 		<div id="blank"></div>
-		<h1>Sign Up Page</h1>
+		<h1>Login Page</h1>
 	{% endblock %}
+
+
 	{% block content %}
 		<form method="post">
 			{% csrf_token %}
 			
 			<label for="email">E-mail:</label>
-			{{form.email|attr:"placeholder:이메일을 입력하세요!!"}}
+			{{form.login|attr:"placeholder:이메일을 입력하세요!!"}}
+            {% for error in form.login.errors %}
+                {{error}}
+            {% endfor %}
 			<label for="password1">Password:</label>
-			{{form.password1|attr:"placeholder:패스워드를 입력해주세요!!"}}
+			{{form.password|attr:"placeholder:패스워드를 입력해주세요!!"}}
 			{% for error in form.password1.errors %}
 				{{error}}
 			{% endfor %}
-			<label for="password2">Password (again):</label>
-			{{form.password2|attr:"placeholder:패스워드를 다시 한번 입력해주세요!!"}}
-			{% for error in form.password1.errors %}
-				{{error}}
-			{% endfor %}
-			<input type="submit" value="Sign Up">
+			<input type="submit" value="Login">
 		</form>
 	{% endblock %}
 
