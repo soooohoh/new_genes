@@ -1,13 +1,23 @@
+{% extends 'gene_base/base.html' %}
 
-{% for property in property%}
-    <div>
-        <p>
-            {{property.title}}<br>
-            {{property.descript}}<br>
-            <a href={% url 'property_detail' property.id %}>{{property.title}}??</a>
-        </p>
-    </div>
-{% endfor %}
+
+{% block handler %}
+    <a class="btn btn-primary btn-xl rounded-pill mt-5" href={% url 'gene_confirm' user.id %}>내 유전자 확인하기</a>
+    <a class="btn btn-primary btn-xl rounded-pill mt-5" href={% url 'gene_register' user.id %}>내 유전자 등록/수정 하기</a>
+{% endblock handler %}
+
+{% block content %}
+    {% for property in property%}
+        <div>
+            <p>
+                {{property.title}}<br>
+                {{property.descript}}<br>
+                <a href={% url 'property_detail' property.id %}>{{property.title}}??</a>
+            </p>
+        </div>
+    {% endfor %}
+{% endblock content %}
+
 
 <footer style="margin-left: 1000px">
     <h1>

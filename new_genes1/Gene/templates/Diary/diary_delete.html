@@ -1,7 +1,11 @@
+{% extends 'gene_base/base.html' %}
+{% load static %}
 
-<form method="post">
-    {% csrf_token %}
-    <h1>{{diary.title}}다이어리를 삭제하시겠습니까??</h1>
-    <button type="submit">삭제</button>
-    <a href={% url 'gene_diary_detail' diary.id %}>취소</a>
-</form>
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <h1>{{diary.title}}다이어리를 삭제하시겠습니까??</h1>
+        <button type="submit">삭제</button>
+        <a href={% url 'gene_diary_detail' diary.id %}>취소</a>
+    </form>
+{% endblock content %}

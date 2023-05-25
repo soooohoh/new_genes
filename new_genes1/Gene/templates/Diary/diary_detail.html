@@ -1,30 +1,33 @@
+{% extends 'gene_base/base.html' %}
+{% load static %}
 
+{% block content %}
+    <div>
+        <h1>{{diary.title}}</h1>
+    </div>
 
-<div>
-    <h1>{{diary.title}}</h1>
-</div>
+    <div>
+        <h2>{{diary.feeling_rating}}</h2>
+    </div>
 
-<div>
-    <h2>{{diary.feeling_rating}}</h2>
-</div>
+    <div>
+        <img src={{diary.diary_image.url}}>
+    </div>
 
-<div>
-    <img src={{diary.diary_image.url}}>
-</div>
+    <div>
+        {{diary.content|linebreaksbr}}
+    </div>
 
-<div>
-    {{diary.content|linebreaksbr}}
-</div>
+    <div>
+        <p>
+            <date>작성일 - {{diary.dt_created|date:"Y년 n월 j일"}}</date><br>
+            <date>수정일 - {{diary.dt_updated|date:"Y년 n월 j일"}}</date><br>
+        </p>
 
-<div>
-    <p>
-        <date>작성일 - {{diary.dt_created|date:"Y년 n월 j일"}}</date><br>
-        <date>수정일 - {{diary.dt_updated|date:"Y년 n월 j일"}}</date><br>
-    </p>
-
-    <footer>
-        <a href={% url 'gene_diary_update' diary.id %}>수정하기</a>
-        <a href={% url 'gene_diary_delete' diary.id %} style="margin-left: 80px">삭제하기</a>
-        <a href={% url 'gene_diary_list' diary.user.id %} style="margin-left: 80px">돌아가기</a>
-    </footer>
-</div>
+        <footer>
+            <a href={% url 'gene_diary_update' diary.id %}>수정하기</a>
+            <a href={% url 'gene_diary_delete' diary.id %} style="margin-left: 80px">삭제하기</a>
+            <a href={% url 'gene_diary_list' diary.user.id %} style="margin-left: 80px">돌아가기</a>
+        </footer>
+    </div>
+{% endblock content %}

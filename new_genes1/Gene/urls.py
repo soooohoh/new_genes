@@ -7,10 +7,9 @@ urlpatterns = [
 
 
     #유전자 정보
-    path('mypage/', views.my_page, name='my_page'),
-    path('mypage/properties/', views.property_confirm, name='properties'),
-    path('mypage/properties/gene_info/<int:property_id>', views.gene_info, name='gene_info'),
-    path('mypage/properties/gene_info/habits/<str:gene_name>', views.habits, name='habits'),
+    path('properties/', views.property_confirm, name='properties'),
+    path('properties/gene_info/<int:property_id>', views.gene_info, name='gene_info'),
+    path('properties/gene_info/habits/<str:gene_name>', views.habits, name='habits'),
 
 
     # 데일리(설문조사)

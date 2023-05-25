@@ -1,6 +1,9 @@
 {% extends 'gene_base/base.html' %}
 {% load static %}
 
+{% block handler %}
+    <a class="btn btn-primary btn-xl rounded-pill mt-5" href={% url 'gene_diary_create' %}>유전일기 작성하기!!</a>
+{% endblock handler %}
 
 {% block content %}
     <h1>{{profile_user.nickname}}님의 다이어리 List</h1>
@@ -13,19 +16,13 @@
                         {% if diary.diary_image %}
                             <img src={{diary.diary_image.url}}><br>
                         {% endif %}
-                    
                         {{diary.title}}<br>
-                        
                         {{diary.feeling_rating}}<br>
-
-                        
-
                         {{diary.content}}<br>
                     </div>
                 </a>
             {% endfor %}
         </div>
-
         <div class="wrap-pagination">
             {% if is_paginated %}
                 <footer>
@@ -53,7 +50,5 @@
         </div>
     </div>
 
-
-    <footer style="margin: 80px 80px"><a href="gene_diary_create">유전일기 작성하기!!</a></footer>
 
 {% endblock content%}

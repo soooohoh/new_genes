@@ -30,12 +30,6 @@ from allauth.account.views import PasswordChangeView
 def home(request):
     return render(request, 'Gene/home.html')
 
-def my_page(request):
-    context=dict()
-    data = Property.objects.all()
-    context['property']=data
-
-    return render(request, 'Gene/my_page.html', context=context)
 
 def property_confirm(request):
     context=dict()

@@ -1,3 +1,7 @@
+{% extends 'gene_base/base.html' %}
+{% load static %}
+
+{% block content %}
 <form method="post">
     {% csrf_token %}
 
@@ -101,3 +105,4 @@
     </div>
     <div style="margin-left: 1000px"><button type="submit">완료!!</button></div>
 </form>
+{% endblock content %}
