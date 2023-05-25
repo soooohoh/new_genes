@@ -31,7 +31,7 @@ urlpatterns = [
     #프로필profile
     path('profile/<int:user_id>/', views.ProfileReadView.as_view(), name='profile'),
     path("set-profile/", views.ProfileSetView.as_view(), name="profile-set"),
-    path('profile/<int:user_id>/edit/', views.ProfileUpdateView, name='profile-update'),
+    path('edit-profile/', views.ProfileUpdateView.as_view(), name="profile-update"),
 
     #유전자 등록/확인
     path('mypage/properties/property_detail/<int:property_id>', views.property_detail, name='property_detail'),

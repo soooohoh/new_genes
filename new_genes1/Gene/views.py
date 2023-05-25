@@ -94,17 +94,17 @@ class ProfileSetView(UpdateView):
 
 
 #프로필 Update
-def ProfileUpdateView(request, user_id):
-    object = User.objects.get(id=user_id)
-    if request.method=="POST":
-        user_form = User_Profile_Form(request.POST, instance=object)
-        user_form.save()
-        return redirect('profile', user_id=object.id)
-                
-    else:
-        user_form = User_Profile_Form(instance=object)
+class ProfileUpdateView(UpdateView):
+    model = User
+    form_class = User_Profile_Form
+    template_name = "Profile/profile_form.html"
+
+    def get_object(self, queryset=None):
+        return self.request.user
+       
+    def get_success_url(self):
+        return reverse("profile", kwargs={'user_id' : self.request.user.id})
         
-    return render(request, "Profile/profile_form.html", {'form' : user_form})
 
 
 
