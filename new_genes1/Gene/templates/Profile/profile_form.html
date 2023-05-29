@@ -2,38 +2,40 @@
 {% load static %}
 
 {% block content %}
-    <h1>프로필 수정</h1>
 
+    <form method="post" enctype="multipart/form-data" id="editForm">
 
+        <h1 class="profileEdit">프로필 수정</h1>
 
-    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div>
-            프로필사진<br>
+            <p>프로필 사진</p>
             {{form.profile_picture}}
         </div>
 
         <div>
-            닉네임{{form.nickname}}
+            <p>닉네임</p>
+            {{form.nickname}}
             {% for error in form.nickname.errors %}
                 <div class="error-message" style="color: red;"><strong>{{error}}</strong></div>
             {% endfor %}
         </div>
 
         <div>
-            상태메세지<br>
+            <p>상태 메시지</p>
             {{form.intro}}
         </div>
 
         <div>
-            올 한해 목표<br>
+            <p>올 한 해 목표</p>
             {{form.goals}}
         </div>
         
 
         <div>
-            <a href={% url 'account_change_password' %}>비밀번호 변경하기<span style="padding-left: 100px"><a href={% url 'profile' user.id %}>취소</a></span></a>
+            <a href={% url 'account_change_password' %} class="button" id="pwBtn">비밀번호 변경</a>
+            <a href={% url 'profile' user.id %} class="button" id="#cancleBtn">취소</a>
+            <button class="button" type="submit" id="submitBtn">완료</button>
         </div>
-        <button type="submit">완료</button>
     </form>
 {% endblock content %}
