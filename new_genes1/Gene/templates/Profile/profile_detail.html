@@ -4,27 +4,35 @@
 
 
 {% block content %}
-<div class="profile_section">
+<div class="profile_photo">
 
     <div class="profile_picture">
         <img src={{profile_user.profile_picture.url}} class="profile_image">
     </div>
 
+    <div class="profile_update">
+        <a href={% url 'profile-update' %}><p>프로필 수정하기</p></a>
+    </div>
+
+</div>
+<div class="profile_section">
+
     <div class="profile_nickname">
-        닉네임 - {{profile_user.nickname}}
+        <b>닉네임 : {{profile_user.nickname}}</b>
     </div>
 
     <div class="profile_intro">
-        상태 메세지 - {{profile_user.intro}}
+        상태 메세지 
+        <div id="textBox">
+            {{profile_user.intro}}
+        </div>
     </div>
 
     <div class="profile_goals">
-            올 한해 목표<br>
-            {{profile_user.goals|linebreaksbr}}
-    </div>
-
-    <div class="profile_update">
-        <h2><a href={% url 'profile-update' %}>프로필 수정하기</a></h2>
+            올 한해 목표
+            <div id="textBox">
+                {{profile_user.goals|linebreaksbr}}
+            </div>
     </div>
 
 </div>
