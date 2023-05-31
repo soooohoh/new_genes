@@ -22,6 +22,7 @@
 
 .profile_update {
     text-align: center;
+    padding-left: 75px;
 }
 
 .profile_section {
@@ -85,3 +86,62 @@
     background-color: #f9cee7;
 }
 
+.diary_detail_style{
+    text-align: center;
+
+}
+
+.diary_detail_button{
+    text-align: center;
+    margin-left:300px;
+}
+
+.background{
+    background-image: url('Gene/images/gene_image.jpg');
+}
+
+.div{
+    width: 100%;
+    height: 100%;
+}
+
+#content-background{
+    background-image: url("images/gene_image.jpg");
+}
+
+.main-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    background: var(--button-bg-color);
+    color: var(--button-color);
+    
+    margin: 0;
+    padding: 0.5rem 1rem;
+    
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    
+    border: none;
+    border-radius: 4px;
+    
+    display: inline-block;
+    width: auto;
+    
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    
+    cursor: pointer;
+    
+    transition: 0.5s;
+    margin-left: 200px;
+    background-color: #f4b8da;
+}
+
+.home-nickname{
+    font-size: 50px;
+    text-align: center;
+}
