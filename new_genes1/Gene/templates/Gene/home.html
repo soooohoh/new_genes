@@ -3,6 +3,7 @@
 
 
 {% block content %}
+        
         {% if user.is_authenticated %}
                 <h1 style="margin: 2em auto;
                 padding:2em;
@@ -22,10 +23,11 @@
                 <a class="main-button" href={% url 'daily_question' %}>Daily Question</a><br><br><br>
                 <a class="main-button" href={% url 'properties' %}>유전자가 뭐에요?</a><br><br><br>
                 <a class="main-button" style="margin-left: 400px;" href={% url 'gene_diary_list' user.id %}>건강일기</a><br><br><br>
-                <a class="main-button" style="margin-left: 400px;" href={% url 'profile' user.id %}>프로필</a><br><br><br>
+                <a class="main-button" style="margin-left: 350px;" href={% url 'profile' user.id %}>프로필</a><br><br><br>
                 <br><br><br><br><br><br><br><br><br>      
         {% else %}
                 <p>로그아웃된 상태입니다.</p>
         {% endif %}
+
 {% endblock content %}
 
