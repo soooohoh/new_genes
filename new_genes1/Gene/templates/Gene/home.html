@@ -6,15 +6,17 @@
         {% if user.is_authenticated %}
                 <h1>메인 페이지</h1><br><br>
                 <h2>{{user}}님!! 환영합니다!!</h2>
-                <ul>
-                    <li>닉네임 - {{user.nickname}}</li>
-                </ul>
-                <a href={% url 'avatar_game' %}>Avatar-Game</a><br><br><br>
-                <a href={% url 'daily_question' %}>Daily Questions</a><br><br><br>
-                <a href={% url 'properties' %}>About Genes</a><br><br><br>
-                <a href={% url 'gene_diary_list' user.id %}>Gene_Diary</a><br><br><br>
-                <a href={% url 'profile' user.id %}>Profile</a><br><br><br>
-                
+
+                        <ul>
+                        <li>닉네임 - {{user.nickname}}</li>
+                        </ul>
+
+
+                <a class="main-button" href={% url 'avatar_game' %}>Avatar-Game</a><br><br><br>
+                <a class="main-button" href={% url 'daily_question' %}>Daily Questions</a><br><br><br>
+                <a class="main-button" href={% url 'properties' %}>About Genes</a><br><br><br>
+                <a class="main-button" href={% url 'gene_diary_list' user.id %}>Gene_Diary</a><br><br><br>
+                <a class="main-button" href={% url 'profile' user.id %}>Profile</a><br><br><br>
                 <br><br><br><br><br><br><br><br><br>      
         {% else %}
                 <p>로그아웃된 상태입니다.</p>

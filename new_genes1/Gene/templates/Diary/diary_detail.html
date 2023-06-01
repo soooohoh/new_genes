@@ -2,32 +2,36 @@
 {% load static %}
 
 {% block content %}
-    <div>
-        <h1>{{diary.title}}</h1>
-    </div>
+    <div class="diary_detail_style">
 
-    <div>
-        <h2>{{diary.feeling_rating}}</h2>
-    </div>
+        <div>
+            <h1>{{diary.title}}</h1>
+        </div>
 
-    <div>
-        <img src={{diary.diary_image.url}}>
-    </div>
+        <div>
+            <h2>오늘 하루는 어땠나요?{{diary.feeling_rating}}
+            </h2>
+        </div>
 
-    <div>
-        {{diary.content|linebreaksbr}}
-    </div>
+        <div>
+            <img src={{diary.diary_image.url}}>
+        </div>
 
-    <div>
-        <p>
-            <date>작성일 - {{diary.dt_created|date:"Y년 n월 j일"}}</date><br>
-            <date>수정일 - {{diary.dt_updated|date:"Y년 n월 j일"}}</date><br>
-        </p>
+        <div>
+            {{diary.content|linebreaksbr}}
+        </div>
 
-        <footer>
-            <a href={% url 'gene_diary_update' diary.id %}>수정하기</a>
-            <a href={% url 'gene_diary_delete' diary.id %} style="margin-left: 80px">삭제하기</a>
-            <a href={% url 'gene_diary_list' diary.user.id %} style="margin-left: 80px">돌아가기</a>
-        </footer>
+        <div>
+            <p>
+                <date>작성일 - {{diary.dt_created|date:"Y년 n월 j일"}}</date><br>
+                <date>수정일 - {{diary.dt_updated|date:"Y년 n월 j일"}}</date><br>
+            </p>
+            <p class="diary_detail_button">
+                <a class="button" id="pwBtn" href={% url 'gene_diary_update' diary.id %}>수정하기</a>
+                <a class="button" id="#cancleBtn" href={% url 'gene_diary_delete' diary.id %} style="margin-left: 80px">삭제하기</a>
+                <a class="button" id="submitBtn" href={% url 'gene_diary_list' diary.user.id %} style="margin-left: 80px">돌아가기</a>
+            </p>
+        </div>
+
     </div>
 {% endblock content %}
