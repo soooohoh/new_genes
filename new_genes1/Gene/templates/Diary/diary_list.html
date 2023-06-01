@@ -10,7 +10,7 @@
     <h1>{{profile_user.nickname}}님의 다이어리 List</h1>
 
     <div class="content-list max-content-width">
-        <div>
+        <div style="">
             {% for diary in all_diary %}
                 <a href={% url 'gene_diary_detail' diary.id %}>
                     <div style="margin: 80px 80px">
@@ -18,7 +18,7 @@
                             <img src={{diary.diary_image.url}}><br>
                         {% endif %}
                         {{diary.title}}<br>
-                        {{diary.feeling_rating}}<br>
+                        오늘 하루는 어땠나요?  {% for i in ""|ljust:diary.feeling_rating %}★{% endfor %}<br>
                         {{diary.content}}<br>
                     </div>
                 </a>
