@@ -10,11 +10,14 @@
 
     {% for property in property %}
         <div style="margin-top: 20px; border-radius:30px; background-color:#f7e9e8;">
+            
             <div>
                 <h1>{{property.title}}</h1><br>
                 <h3>{{property.descript}}</h3><br>
             </div>
+
             <a class="button" style="margin-left: 550px;" href={% url 'property_detail' property.id %}>{{property.title}}??</a>
+
         </div>
 
         <div style="margin-bottom: 80px;">
