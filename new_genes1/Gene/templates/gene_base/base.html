@@ -53,14 +53,14 @@
                         <div class="bg-circle-4 bg-circle"></div>
                     </header>
 
-                        <section class="content_section">
-                            <div class="container px-5">
-                                <div class="row gx-5 align-items-center">
-                                        {% block content %}
-                                        {% endblock content %}
-                                </div>
+                    <section class="content_section">
+                        <div class="container px-5">
+                            <div class="row gx-5 align-items-center">
+                                    {% block content %}
+                                    {% endblock content %}
                             </div>
-                        </section>
+                        </div>
+                    </section>
 
                     <footer class="py-5 bg-black">
                         {% if user.is_authenticated %}

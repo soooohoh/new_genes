@@ -16,7 +16,7 @@
             </div>
 
             <div style="margin-bottom: 40px; padding-left:500px;">
-                <a href={% url 'habits' gene.name %}>생활습관&식습관 꿀팁!! for  {{gene.name}}</a>
+                <a class="button" href={% url 'habits' gene.name %}>생활습관&식습관 꿀팁!! for  {{gene.name}}</a>
             </div>
         {% endfor %}
 {% endblock content%}         
