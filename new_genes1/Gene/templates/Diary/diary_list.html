@@ -10,10 +10,14 @@
     <h1>{{profile_user.nickname}}님의 다이어리 List</h1>
 
     <div class="content-list max-content-width">
-        <div style="">
+        <div>
             {% for diary in all_diary %}
                 <a href={% url 'gene_diary_detail' diary.id %}>
-                    <div style="margin: 80px 80px">
+                    <div style="margin: 80px 80px;
+                    padding:2em;
+                    border-radius: 30px 60px/60px 30px;
+                    background-color: #f7e9e8;
+                    border: solid 8px #f7e9e8; text-align: center;">
                         {% if diary.diary_image %}
                             <img src={{diary.diary_image.url}}><br>
                         {% endif %}
