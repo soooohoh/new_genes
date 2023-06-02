@@ -1,6 +1,34 @@
 {% extends 'gene_base/base.html' %}
 {% load static %}
 
+
+
+<form method="post">
+    {% csrf_token %}
+    <br>
+    <h1>{{diary.title}}다이어리를 삭제하시겠습니까??</h1>
+    <br>
+   
+    <div> 
+        <!-- 다이어리를 삭제하는 버튼과 취소하고 다시 이전 페이지로 가는 버튼 -->
+        <button class="diary_delete_button" type="submit" onclick="showAlert() ">삭제</button>
+        <button class="diary_delete_button"><a href={% url 'gene_diary_detail' diary.id %}>취소</a></button>
+    </div>
+        
+    
+</form>
+
+<!-- 삭제하기를 눌렀을 때 알림이 한번 더 뜨게 하는 코드 -->
+<script>
+function showAlert() {
+  alert("{{diary.title}}다이어리가 삭제됩니다.");
+}
+</script>
+
+
+
+
+<!--
 {% block content %}
     <form method="post">
         {% csrf_token %}

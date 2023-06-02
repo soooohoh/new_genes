@@ -3,6 +3,38 @@
 {% load widget_tweaks %}
 
 {% block content %}
+
+
+<form method="post" autocomplete="off" enctype="multipart/form-data" class="diary-form">
+    {% csrf_token %}
+    <h1 class="diary_form_h1"> 오늘 하루에 대해서 기록을 남겨주세요!</h1>
+    <div>
+        제목 <span>{{ form.title }}</span>
+    </div>
+
+    <div class="form-group">
+        오늘 하루를 별점으로 표시해주세요! <span class="feeling-rating">{{ form.feeling_rating }}</span>
+    </div>
+
+    <div class="form-group">
+        오늘의 추억을 담아주세요!!<br> 
+        <span>{{ form.diary_image }}</span><br>
+        <span>{{ form.diary_image2 }}</span><br>
+        <span>{{ form.diary_image3 }}</span><br>
+    </div>
+
+    <div class="form-group">
+        건강을 위해서 오늘 한 일 <br>
+        <span>{{ form.content }}</span>
+    </div>
+
+    <div class="button-group">
+        <a class="button-cancel" href="{% url 'gene_diary_list' user.id %}">취소하기</a>
+        <button class="button-submit" type="submit">기록하기!!</button>
+    </div>
+</form>
+
+<!--
     <form method="post" autocomplete="off" enctype="multipart/form-data">
         {% csrf_token %}
         <h1> 오늘 하루는 어땠나요? 무엇을 먹었나요? 운동은 하셨나요??</h1>
@@ -37,4 +69,5 @@
             </div>
         </div>
     </form>
+-->
 {% endblock content %}

@@ -7,6 +7,64 @@
 
 {% block content %}
 
+<h1 class="diary_list_h1">{{profile_user.nickname}}님의 다이어리 List</h1>
+
+<div class="content-list max-content-width">
+    <div>
+        {% for diary in all_diary %}
+        <hr>
+        <!--<h1 style="text-align: left;">{{ forloop.counter }}</h1>-->
+        <!--  위 코드는 다이어리 번호인데 페이지를 넘어가면 다시 1부터 시작하는 오류때문에 일단 지워두었습니다. -->
+        <a href={% url 'gene_diary_detail' diary.id %}>
+            <div style="margin: 80px 80px">
+                
+                <h3>{{diary.title}}</h3>
+                <hr>
+                {% if diary.diary_image %}
+                <img src={{diary.diary_image.url}}><br>
+                {% endif %}
+                
+                <hr>
+                <p>이날에 준 점수 : {{diary.feeling_rating}}점</p><br>
+                <p>이날 한 행동 : {{diary.content}}</p><br>
+            </div>
+            <p>
+                <date style="margin-left: 50px;">작성일 - {{diary.dt_created|date:"Y년 n월 j일"}}</date><br>
+                <date style="margin-left: 50px;">수정일 - {{diary.dt_updated|date:"Y년 n월 j일"}}</date><br>
+              </p>
+        </a>
+        
+        {% endfor %}
+    </div>
+            
+    <div class="wrap-pagination">
+        {% if is_paginated %}
+        <div>
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li><a href="?page=1">처음</a></li>
+                <li><a href="?page={{page_obj.previous_page_number}}">이전</a></li>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                <li class="current">{{ num }}</li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %} <li><a
+                        href="?page={{ num }}">{{ num }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">다음</a></li>
+                    <li><a href="?page={{ page_obj.paginator.num_pages }}">마지막</a></li>
+                    {% endif %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!--
     <h1>{{profile_user.nickname}}님의 다이어리 List</h1>
 
     <div class="content-list max-content-width">
@@ -53,5 +111,5 @@
         {% endif %}
         </div>
     </div>
-
+-->
 {% endblock content%}

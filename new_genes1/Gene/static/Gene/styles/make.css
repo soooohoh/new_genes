@@ -145,3 +145,374 @@
     font-size: 50px;
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+.profile_photo {
+    float: left;
+    width: 30%;
+    height: 100%;
+    padding-top: 20px;
+    border-right: solid 1px black;
+}
+
+.profile_picture {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.profile_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile_update {
+    text-align: center;
+    padding-left: 75px;
+}
+
+.profile_section {
+    float: right;
+    width: 70%;
+    height: 100%;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.profile_nickname {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.profile_intro {
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+#textBox {
+    border: dotted 2px #f4b8da;
+}
+
+.content_section {
+    margin-bottom: 300px;
+}
+
+.profile_goals {
+    margin-bottom: 50px;
+}
+
+.profileEdit{
+    margin-top: 40px;
+}
+
+#editForm>div>p{
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f9cee7;
+}
+
+.button{
+    display: block;
+    float: left;
+    width: 120px;
+    font-size: medium;
+    margin: 15px 20px;
+    padding: 0 0;
+    text-align: center;
+    border-radius: 5px;
+    transition: all 0.2s ;
+    background-color: #FFF;
+    color: #f4b8da;
+    border: 1px solid #f9cee7;
+    text-decoration: none;
+}
+
+.button:hover{
+    color: #FFF;
+    background-color: #f9cee7;
+}
+
+.diary_detail_style{
+    text-align: center;
+
+}
+
+.diary_detail_button{
+    text-align: center;
+    margin-left:300px;
+}
+
+.background{
+    background-image: url('Gene/images/gene_image.jpg');
+}
+
+.div{
+    width: 100%;
+    height: 100%;
+}
+
+#content-background{
+    background-image: url("images/gene_image.jpg");
+}
+
+.main-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    background: var(--button-bg-color);
+    color: var(--button-color);
+    
+    margin: 0;
+    padding: 0.5rem 1rem;
+    
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    
+    border: none;
+    border-radius: 4px;
+    
+    display: inline-block;
+    width: auto;
+    
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    
+    cursor: pointer;
+    
+    transition: 0.5s;
+    margin-left: 200px;
+    background-color: #f4b8da;
+}
+
+.home-nickname{
+    font-size: 50px;
+    text-align: center;
+}
+
+
+/*여기부터 다이어리 추가 부분입니다.*/
+/* ######################################################################*/
+/*다이어리*/
+
+.diary_block{
+    border: 0px solid black;
+}
+.diary_imagebox{
+   display: inline-block;
+   max-width: 400px;
+   height: auto;
+   overflow: hidden;
+}
+.diary_imagebox img{
+   width: 100%;
+   height: 100%;
+   border: 1px solid rgb(34, 34, 34);
+}
+.diary_detail_content{
+    font-size: 18px;
+}
+/* 수정하기 삭제하기 돌아가기 버튼 */
+.diary_modify_button{
+   display: inline-block;
+   padding: 10px 20px;
+   background-color: rgb(148, 148, 148);
+   color: white;
+   text-decoration: none;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 16px;
+}
+/*버튼에 커서를 올렸을 때*/
+.diary_modify_button:hover {
+   background-color: #57af5b;
+ }
+.diary_modify_button a{
+   text-decoration: none;
+   color: white;
+}/*별점을 보여주는 부분*/
+.star-rating {
+   display: inline-block;
+   font-size: 24px;
+   color: gold;
+ }
+
+/*###############################################################################*/
+/*다이어리 삭제 페이지*/
+
+.diary_delete_button{
+   background-color: rgb(148, 148, 148);
+   color: white;
+   text-decoration: none;
+   margin: 20px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 32px;
+}
+.diary_delete_button a{
+   text-decoration: none;
+   color: white;
+}
+
+.diary_delete_button:hover{
+    background-color: #57af5b;
+}
+
+/*#########################################################################################*/
+/*다이어리 폼*/
+
+.diary-form {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.diary_form_h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin-top: 80px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 150px;
+}
+
+.button-cancel {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button-submit {
+    display: inline-block;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+.feeling-rating input[type="radio"] {
+    outline: none;
+  }
+  
+  .feeling-rating input[type="radio"]::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  
+  /*###################################################################################*/
+
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #aa2161;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-xl {
+    padding: 20px 40px;
+    font-size: 24px;
+}
+
+.rounded-pill {
+    border-radius: 50px;
+}
+
+.mt-5 {
+    margin-top: 5rem;
+}
+
+.diary_list_h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.content-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    
+}
+
+.content-list a {
+    text-decoration: none;
+    color: inherit;
+    
+}
+.content-list a div{
+    border: 1px solid black;
+    border-radius: 5px;
+}   
+
+.content-list img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.wrap-pagination {
+margin-bottom: 20px;
+    margin-top: auto;
+    text-align: center;
+}
+
+.pagination {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.pagination li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.pagination li.current {
+    font-weight: bold;
+}
