@@ -21,6 +21,7 @@ from Gene.models import  User, Property, Diary
 from Gene.forms import User_Profile_Form, User_Diary_Form, User_Gene_Register_Form
 from .models import Property, Gene, Eating_Habits, LifeStyle
 from allauth.account.views import PasswordChangeView
+from braces.views import LoginRequiredMixin, UserPassesTestMixin
 
 
 
@@ -65,7 +66,7 @@ def daily_question(request):
 
 
 #프로필 Read
-class ProfileReadView(DetailView):
+class ProfileReadView(LoginRequiredMixin, DetailView):
     model = User
     template_name = 'Profile/profile_detail.html'
     pk_url_kwarg = "user_id"
@@ -74,7 +75,7 @@ class ProfileReadView(DetailView):
 
 
 #프로필 Create
-class ProfileSetView(UpdateView):
+class ProfileSetView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = User_Profile_Form
     template_name = "Profile/profile_set_form.html"
@@ -88,7 +89,7 @@ class ProfileSetView(UpdateView):
 
 
 #프로필 Update
-class ProfileUpdateView(UpdateView):
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = User_Profile_Form
     template_name = "Profile/profile_form.html"
@@ -103,7 +104,7 @@ class ProfileUpdateView(UpdateView):
 
 
 # 패스워드 변경 뷰
-class CustomPasswordChangeView(PasswordChangeView):
+class CustomPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     
     def get_success_url(self):
         return reverse('profile', kwargs={'user_id' : self.request.user.id})
@@ -111,7 +112,7 @@ class CustomPasswordChangeView(PasswordChangeView):
 
 
 # 다이어리 Read 뷰
-class Gene_Diary_List_View(ListView):
+class Gene_Diary_List_View(LoginRequiredMixin, ListView):
     model = Diary
     template_name = "Diary/diary_list.html"
     pk_url_kwarg = "user_id"
@@ -132,14 +133,14 @@ class Gene_Diary_List_View(ListView):
         return context
     
 
-class Gene_Diary_Detail_View(DetailView):
+class Gene_Diary_Detail_View(LoginRequiredMixin, DetailView):
     model = Diary
     template_name = "Diary/diary_detail.html"
     context_object_name = "diary"
     pk_url_kwarg = "diary_id"
 
 
-class Gene_Diary_Create_View(CreateView):
+class Gene_Diary_Create_View(LoginRequiredMixin, CreateView):
     model = Diary
     form_class = User_Diary_Form
     template_name = "Diary/diary_form.html"
@@ -153,7 +154,7 @@ class Gene_Diary_Create_View(CreateView):
         return reverse('gene_diary_detail', kwargs={"diary_id" : self.object.id})
     
 
-class Gene_Diary_Update_View(UpdateView):
+class Gene_Diary_Update_View(LoginRequiredMixin, UpdateView):
     model = Diary
     pk_url_kwarg = "diary_id"
     template_name = "Diary/diary_form.html"
@@ -163,7 +164,7 @@ class Gene_Diary_Update_View(UpdateView):
         return reverse("gene_diary_detail", kwargs={"diary_id" : self.object.id})
 
 
-class Gene_Diary_Delete_View(DeleteView):
+class Gene_Diary_Delete_View(LoginRequiredMixin, DeleteView):
     model = Diary
     pk_url_kwarg = "diary_id"
     get_object_name = "diary"
