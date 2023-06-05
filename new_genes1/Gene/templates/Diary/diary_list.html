@@ -25,13 +25,12 @@
                 {% endif %}
                 
                 <hr>
-                <p>이날에 준 점수 : {{diary.feeling_rating}}점</p><br>
-                <p>이날 한 행동 : {{diary.content}}</p><br>
+                <p>오늘 하루는 {% for i in ""|ljust:diary.feeling_rating %}★{% endfor %}</p><br>
+                <p style="padding-right: 120px;">
+                    <date style="margin-left: 50px;">작성일 - {{diary.dt_created|date:"Y년 n월 j일"}}</date><br>
+                    <date style="margin-left: 50px;">수정일 - {{diary.dt_updated|date:"Y년 n월 j일"}}</date><br>
+                </p>
             </div>
-            <p>
-                <date style="margin-left: 50px;">작성일 - {{diary.dt_created|date:"Y년 n월 j일"}}</date><br>
-                <date style="margin-left: 50px;">수정일 - {{diary.dt_updated|date:"Y년 n월 j일"}}</date><br>
-              </p>
         </a>
         
         {% endfor %}
