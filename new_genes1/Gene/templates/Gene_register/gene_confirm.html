@@ -3,117 +3,115 @@
  
 
 {% block content %}
-    <h1>{{user.nickname}}님의 유전 현황</h1>
-
-    <h2>
+    <h1 class="gene_confirm_name">{{user.nickname}}님의 유전 현황</h1>
+    
+    <h2 class="gene_confirm_factor">
         체질량 지수(FTO, MC4R, BDNF)
     </h2>
 
-    <div>
-        FTO -> {{user.get_FTO_gene_display}}<br>
-        MC4R -> {{user.get_MC4R_gene_display}}<br>
-        BDNF -> {{user.get_BDNF_gene_display}}<br>
+    <div class="gene_confirm_resultArea">
+        <p id="effect">FTO -> {{user.get_FTO_gene_display}}</p>
+        <p id="effect">MC4R -> {{user.get_MC4R_gene_display}}</p>
+        <p id="effect">BDNF -> {{user.get_BDNF_gene_display}}</p>
     </div>
 
-    <h2>
+    <h2 class="gene_confirm_factor">
         색소침착(OCA2, MC1R)
     </h2>
 
-    <div>
-        FTO -> {{user.get_FTO_gene_display}}<br>
-        MC4R -> {{user.get_MC4R_gene_display}}<br>
-        BDNF -> {{user.get_BDNF_gene_display}}<br>
+    <div class="gene_confirm_resultArea">
+        <p id="effect">OCA2 -> {{user.get_OCA2_gene_display}}</p>
+        <p id="effect">MC1R -> {{user.get_MC1R_gene_display}}</p>
     </div>
 
-    <h2>
+    <h2 class="gene_confirm_factor">
         탈모(chr20p11(1), chr20p11(2), IL2RA, HLA-DQB1)
     </h2>
 
-    <div>
-        FTO -> {{user.get_FTO_gene_display}}<br>
-        MC4R -> {{user.get_MC4R_gene_display}}<br>
-        BDNF -> {{user.get_BDNF_gene_display}}<br>
+    <div class="gene_confirm_resultArea">
+        <p id="effect">chr20p11(1) -> {{user.get_chr20p11_1_display}}</p>
+        <p id="effect">chr20p11(2) -> {{user.get_chr20p11_2_display}}</p>
+        <p id="effect">IL2RA -> {{user.get_IL2RA_display}}</p>
+        <p id="effect">HLA-DQB1 -> {{user.get_HLA_DQB1_display}}</p>
     </div>
 
-    <h2>
+    <h2 class="gene_confirm_factor">
         모발굵기(EDAR)
     </h2>
 
-    <div>
-        FTO -> {{user.get_FTO_gene_display}}<br>
-        MC4R -> {{user.get_MC4R_gene_display}}<br>
-        BDNF -> {{user.get_BDNF_gene_display}}<br>
+    <div class="gene_confirm_resultArea">
+        <p id="effect">EDAR -> {{user.get_EDAR_display}}</p>
     </div>
 
-    <h2>
+    <h2 class="gene_confirm_factor">
         피부노화(AGER(1), AGER(2))
     </h2>
 
-    <div>
-        FTO -> {{user.get_FTO_gene_display}}<br>
-        MC4R -> {{user.get_MC4R_gene_display}}<br>
-        BDNF -> {{user.get_BDNF_gene_display}}<br>
+    <div class="gene_confirm_resultArea">
+        <p id="effect">AGER(1) -> {{user.get_AGER_1_display}}</p>
+        <p id="effect">AGER(2) -> {{user.get_AGER_2_display}}</p>
     </div>
 
-    <h2>
+    <h2 class="gene_confirm_factor">
         중성지방 농도(GCKR, ANGPTL3, TRIB1)
     </h2>
 
-    <div>
-        FTO -> {{user.get_FTO_gene_display}}<br>
-        MC4R -> {{user.get_MC4R_gene_display}}<br>
-        BDNF -> {{user.get_BDNF_gene_display}}<br>
+    <div class="gene_confirm_resultArea">
+        <p id="effect">GCKR -> {{user.get_GCKR_display}}</p>
+        <p id="effect">ANGPTL3 -> {{user.get_ANGPTL3_display}}</p>
+        <p id="effect">TRIB1 -> {{user.get_TRIB1_display}}</p>
     </div>
 
-    <h2>
+    <h2 class="gene_confirm_factor">
         콜레스테롤(HMGCR, ABO, ABCA1, LIPG)
     </h2>
-    </h2>
 
-    <div>
-        FTO -> {{user.get_FTO_gene_display}}<br>
-        MC4R -> {{user.get_MC4R_gene_display}}<br>
-        BDNF -> {{user.get_BDNF_gene_display}}<br>
+    <div class="gene_confirm_resultArea">
+        <p id="effect">HMGCR -> {{user.get_HMGCR_display}}</p>
+        <p id="effect">ABO -> {{user.get_ABO_display}}</p>
+        <P id="effect">ABCA1 -> {{user.get_ABCA1_display}}</P>
+        <P id="effect">LIPG -> {{user.get_LIPG_display}}</P>
     </div>
 
-    <h2>
+    <h2 class="gene_confirm_factor">
         혈당(DGKB-TMEM195, CDKN2A/2B, GCK, GLIS3)
     </h2>
 
-    <div>
-        FTO -> {{user.get_FTO_gene_display}}<br>
-        MC4R -> {{user.get_MC4R_gene_display}}<br>
-        BDNF -> {{user.get_BDNF_gene_display}}<br>
+    <div class="gene_confirm_resultArea">
+        <p id="effect">DGKB-TMEM195 -> {{user.get_DGKB_TMEM195_display}}</p>
+        <p id="effect">CDKN2A/2B -> {{user.get_CDKN2A_2B_display}}</p>
+        <p id="effect">GCK -> {{user.get_GCK_display}}</p>
+        <p id="effect">GLIS3 -> {{user.get_GLIS3_display}}</p>
     </div>
 
-    <h2>
+    <h2 class="gene_confirm_factor">
         혈압(GUCY1A3, FGF5, ATP2B1, NPR3, CYP17A1)
     </h2>
 
-    <div>
-        FTO -> {{user.get_FTO_gene_display}}<br>
-        MC4R -> {{user.get_MC4R_gene_display}}<br>
-        BDNF -> {{user.get_BDNF_gene_display}}<br>
+    <div class="gene_confirm_resultArea">
+        <p id="effect">GUCY1A3 -> {{user.get_GUCY1A3_display}}</p>
+        <p id="effect">FGF5 -> {{user.get_FGF5_display}}</p>
+        <p id="effect">ATP2B1 -> {{user.get_ATP2B1_display}}</p>
+        <p id="effect">NPR3 -> {{user.get_NPR3_display}}</p>
+        <p id="effect">CYP17A1 -> {{user.get_CYP17A1_display}}</p>
     </div>
 
-    <h2>
+    <h2 class="gene_confirm_factor">
         비타민C농도(SLC23A1(1), SLC23A1(2))
     </h2>
 
-    <div>
-        FTO -> {{user.get_FTO_gene_display}}<br>
-        MC4R -> {{user.get_MC4R_gene_display}}<br>
-        BDNF -> {{user.get_BDNF_gene_display}}<br>
+    <div class="gene_confirm_resultArea">
+        <p id="effect">SLC23A1(1) -> {{user.get_SLC23A1_1_display}}</p>
+        <p id="effect">SLC23A1(2) -> {{user.get_SLC23A1_2_display}}</p>
     </div>
 
-    <h2>
+    <h2 class="gene_confirm_factor">
         카페인대사(CYP1A1-CYP1A2, AHR)
     </h2>
 
-    <div>
-        FTO -> {{user.get_FTO_gene_display}}<br>
-        MC4R -> {{user.get_MC4R_gene_display}}<br>
-        BDNF -> {{user.get_BDNF_gene_display}}<br>
+    <div class="gene_confirm_resultArea">
+        <p id="effect">CYP1A1-CYP1A2 -> {{user.get_CYP1A1_CYP1A2_display}}</p>
+        <p id="effect">AHR -> {{user.get_AHR_display}}</p>
     </div>
 
 {% endblock content %}
