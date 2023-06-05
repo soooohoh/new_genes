@@ -4,21 +4,23 @@
 
 {% block content %}
     {% for habit in data %}
-            <div style="display: inline-block; padding: 0px 20px;">
-                <h3>{{habit.food_name}}</h3>
-                {{habit.food_description | linebreaksbr}}<br>
-                {{habit.foods}}<br>
+            <div style="display: inline-block; padding: 0px 20px; text-align:center;">
+                <h1 style="margin-bottom: 50px;">{{habit.food_name}}</h1>
+                <h2 style="margin-bottom: 50px;">
+                    {{habit.food_description | linebreaksbr}}<br>
+                    {{habit.foods}}<br>
+                </h2>
             </div>    
     {% endfor %}
 
     <br><br><br><br>
 
-
-    <h2>{{style_data.gene.name}}생활 습관 가이드</h2>
-    {% for habit in style_data %}
-            <div>
-                <h3>{{habit.id}}</h3>
-                {{habit.style}}
-            </div>
-    {% endfor %}
+    <div style="margin-top: 100px;">
+        <h1>생활 습관 가이드</h1>
+        {% for habit in style_data %}
+                <div style="text-align: center;">
+                    <h3>{{habit.style}}</h3>
+                </div>
+        {% endfor %}
+    </div>
 {% endblock content %}
