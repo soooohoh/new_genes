@@ -9,18 +9,14 @@
 {% block content %}
 
     {% for property in property %}
-        <div style="margin-top: 20px; border-radius:30px; background-color:#f7e9e8;">
+        <div class="properties_list">
 
             <div>
                 <h1>{{property.title}}</h1><br>
-                <h3 style="text-align: center;">{{property.descript}}</h3><br>
+                <h3 style="text-align: center;">{{property.descript}}</h3>
             </div>
+            <div class="property_btn"><a class="button" href={% url 'property_detail' property.id %}>{{property.title}}?</a></div>
 
-            <a class="button" style="margin-left: 500px; width: 200px;" href={% url 'property_detail' property.id %}>{{property.title}}??</a>
-
-        </div>
-
-        <div style="margin-bottom: 80px;">
         </div>
     {% endfor %}
 

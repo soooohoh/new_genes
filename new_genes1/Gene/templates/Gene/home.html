@@ -5,26 +5,28 @@
 {% block content %}
         
         {% if user.is_authenticated %}
-                <h1 style="margin: 2em auto;
+                <h1 style="margin: 20px auto;
                 padding:2em;
                 position: relative;
                 padding:1.5em !important;
                 z-index: 0;
                 background-color: #f7e9e8;
                 border-radius:13px;"
-                >메인 페이지</h1><br><br>
-                <h2 style="margin: 2em auto;
+                >메인 페이지</h1>
+
+                <h2 style="margin: 20px auto;
                 padding:2em;
                 border-radius: 30px 60px/60px 30px;
                 border: solid 8px #f7e9e8; text-align: center;"
                 >{{user.nickname}}님!! 환영합니다!!</h2>
 
-                <a class="main-button" href={% url 'avatar_game' %}>아바타 게임하기!</a><br><br><br>
-                <a class="main-button" href={% url 'daily_question' %}>Daily Question</a><br><br><br>
-                <a class="main-button" href={% url 'properties' %}>유전자가 뭐에요?</a><br><br><br>
-                <a class="main-button" style="margin-left: 400px;" href={% url 'gene_diary_list' user.id %}>건강일기</a><br><br><br>
-                <a class="main-button" style="margin-left: 350px;" href={% url 'profile' user.id %}>프로필</a><br><br><br>
-                <br><br><br><br><br><br><br><br><br>      
+                <div class="main_menu">
+                        <a class="button" href={% url 'avatar_game' %}>아바타 게임하기!</a>
+                        <a class="button" href={% url 'daily_question' %}>Daily Question</a>
+                        <a class="button" href={% url 'properties' %}>유전자가 뭐에요?</a>
+                        <a class="button" href={% url 'gene_diary_list' user.id %}>건강일기</a>
+                        <a class="button" href={% url 'profile' user.id %}>프로필</a>
+                </div>
         {% else %}
                 <p>로그아웃된 상태입니다.</p>
         {% endif %}
