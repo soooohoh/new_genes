@@ -4,105 +4,108 @@
 {% block content %}
 <form method="post">
     {% csrf_token %}
-
-    <div class="gene_confirm_resultArea" style="color: black; border-radius: 20%;">
+    <h1 class="gene_register_intro">당신의 유전자를 등록해주세요!</h1>
+    <div class="gene_register_area">
         <h2>체질량 지수[FTO]</h2>
-        {{form.FTO_gene}}
+        <div class="gene_register_select">{{form.FTO_gene}}</div>
         <h2>체질량 지수[MC4R]</h2>
-        {{form.MC4R_gene}}
+        <div class="gene_register_select">{{form.MC4R_gene}}</div>
         <h2>체질량 지수[BDNF]</h2>
-        {{form.BDNF_gene}}
+        <div class="gene_register_select">{{form.BDNF_gene}}</div>
     </div>
 
-    <div class="gene_confirm_resultArea" style="color: black; border-radius: 20%;">
+    <div class="gene_register_area">
         <h2>색소침착[OCA2]</h2>
-        {{form.OCA2_gene}}
+        <div class="gene_register_select">{{form.OCA2_gene}}</div>
         <h2>색소침착[MC1R]</h2>
-        {{form.MC1R_gene}}
+        <div class="gene_register_select">{{form.MC1R_gene}}</div>
     </div>
 
-    <div class="gene_confirm_resultArea" style="color: black; border-radius: 20%;">
+    <div class="gene_register_area">
         <h2>탈모[chr20p11(1)]</h2>
-        {{form.chr20p11_1}}
+        <div class="gene_register_select">{{form.chr20p11_1}}</div>
         <h2>탈모[chr20p11(2)]</h2>
-        {{form.chr20p11_2}}
+        <div class="gene_register_select">{{form.chr20p11_2}}</div>
         <h2>탈모[IL2RA]</h2>
-        {{form.IL2RA}}
+        <div class="gene_register_select">{{form.IL2RA}}</div>
         <h2>탈모[HLA-DQB1]</h2>
-        {{form.HLA_DQB1}}                   
+        <div class="gene_register_select">{{form.HLA_DQB1}} </div>                  
     </div>
 
-    <div class="gene_confirm_resultArea" style="color: black; border-radius: 20%;">
+    <div class="gene_register_area">
         <h2>모발굵기[EDAR]</h2>
-        {{form.EDAR}}    
+        <div class="gene_register_select">{{form.EDAR}}</div>
     </div>
 
-    <div class="gene_confirm_resultArea" style="color: black; border-radius: 20%;">
+    <div class="gene_register_area">
         <h2>피부노화[AGER(1)]</h2>
-        {{form.AGER_1}}
+        <div class="gene_register_select">{{form.AGER_1}}</div>
         <h2>피부노화[AGER(2)]</h2>
-        {{form.AGER_2}}     
+        <div class="gene_register_select">{{form.AGER_2}}</div>
     </div>
 
 
-    <div class="gene_confirm_resultArea" style="color: black; border-radius: 20%;">
+    <div class="gene_register_area">
         <h2>중성지방농도[GCKR]</h2>
-        {{form.GCKR}}
+        <div class="gene_register_select">{{form.GCKR}}</div>
         <h2>중성지방농도[ANGPTL3]</h2>
-        {{form.ANGPTL3}}
+        <div class="gene_register_select">{{form.ANGPTL3}}</div>
         <h2>중성지방농도[TRIB1]</h2>
-        {{form.TRIB1}}        
+        <div class="gene_register_select">{{form.TRIB1}}</div>
     </div>
 
 
-    <div class="gene_confirm_resultArea" style="color: black; border-radius: 20%;">
+    <div class="gene_register_area">
         <h2>콜레스테롤[HMGCR]</h2>
-        {{form.HMGCR}}
+        <div class="gene_register_select">{{form.HMGCR}}</div>
         <h2>콜레스테롤[ABO]</h2>
-        {{form.ABO}}
+        <div class="gene_register_select">{{form.ABO}}</div>
         <h2>콜레스테롤[ABCA1]</h2>
-        {{form.ABCA1}}
+        <div class="gene_register_select">{{form.ABCA1}}</div>
         <h2>콜레스테롤[LIPG]</h2>
-        {{form.LIPG}}                  
+        <div class="gene_register_select">{{form.LIPG}}</div>
     </div>
 
-    <div class="gene_confirm_resultArea" style="color: black; border-radius: 20%;">
+    <div class="gene_register_area">
         <h2>혈당[DGKB-TMEM195]</h2>
-        {{form.DGKB_TMEM195}}
+        <div class="gene_register_select">{{form.DGKB_TMEM195}}</div>
         <h2>혈당[CDKN2A/2B]</h2>
-        {{form.CDKN2A_2B}}
+        <div class="gene_register_select">{{form.CDKN2A_2B}}</div>
         <h2>혈당[GCK]</h2>
-        {{form.GCK}}      
+        <div class="gene_register_select">{{form.GCK}}</div>
         <h2>혈당[GLIS3]</h2>
-        {{form.GLIS3}}          
+        <div class="gene_register_select">{{form.GLIS3}}</div>          
     </div>
 
-    <div class="gene_confirm_resultArea" style="color: black; border-radius: 20%;">
+    <div class="gene_register_area">
         <h2>혈압[GUCY1A3]</h2>
-        {{form.GUCY1A3}}
+        <div class="gene_register_select">{{form.GUCY1A3}}</div>
         <h2>혈압[FGF5]</h2>
-        {{form.FGF5}}
+        <div class="gene_register_select">{{form.FGF5}}</div>
         <h2>혈압[ATP2B1]</h2>
-        {{form.ATP2B1}}
+        <div class="gene_register_select">{{form.ATP2B1}}</div>
         <h2>혈압[NPR3]</h2>
-        {{form.NPR3}}
+        <div class="gene_register_select">{{form.NPR3}}</div>
         <h2>혈압[CYP17A1]</h2>
-        {{form.CYP17A1}}                            
+        <div class="gene_register_select">{{form.CYP17A1}}</div>
     </div>
 
-    <div class="gene_confirm_resultArea" style="color: black; border-radius: 20%;">
+    <div class="gene_register_area">
         <h2>비타민C농도[SLC23A1(1)]</h2>
-        {{form.SLC23A1_1}}
+        <div class="gene_register_select">{{form.SLC23A1_1}}</div>
         <h2>비타민C농도[SLC23A1(2)]</h2>
-        {{form.SLC23A1_2}}     
+        <div class="gene_register_select">{{form.SLC23A1_2}}</div>     
     </div>
 
-    <div class="gene_confirm_resultArea" style="color: black; border-radius: 20%;">
+    <div class="gene_register_area">
         <h2>카페인대사[CYP1A1-CYP1A2]</h2>
-        {{form.CYP1A1_CYP1A2}}
+        <div class="gene_register_select">{{form.CYP1A1_CYP1A2}}</div>
         <h2>카페인대사[AHR]</h2>
-        {{form.AHR}}                
+        <div class="gene_register_select">{{form.AHR}}</div>
     </div>
-    <div style="margin-left: 1000px"><button type="submit">완료!!</button></div>
+    <div><button class="button" type="submit">입력 완료!</button></div>
 </form>
+
+
+
 {% endblock content %}
